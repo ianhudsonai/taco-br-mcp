@@ -175,10 +175,9 @@ describe('get_nutrients', () => {
   });
 
   it('answers for every one of the 597 foods without schema errors', async () => {
-    const ids = FOODS.map((f) => f.id);
-    for (const id of [ids[0]!, ids[100]!, ids[300]!, ids[596]!]) {
+    for (const { id } of FOODS) {
       const r = await call('get_nutrients', { food_id: id });
-      expect(r.isError).toBeFalsy();
+      expect(r.isError, `food ${id}`).toBeFalsy();
       expect((r.structuredContent as { food: { id: number } }).food.id).toBe(id);
     }
   });
