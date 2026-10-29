@@ -1,0 +1,55 @@
+{
+  "name": "taco-br-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the TACO (Tabela Brasileira de Composição de Alimentos, NEPA/UNICAMP) Brazilian food composition table",
+  "mcpName": "io.github.ianhudsonai/taco-br",
+  "type": "module",
+  "license": "MIT",
+  "author": "Ian Hudson Vieira",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "taco",
+    "nutrition",
+    "brazil",
+    "food-composition"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "taco-br-mcp": "dist/server.js"
+  },
+  "files": [
+    "dist",
+    "data",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "inspect": "npm run build && npx @modelcontextprotocol/inspector node ./dist/server.js",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@modelcontextprotocol/client": "^2.4.0",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.13.0",
+    "prettier": "^3.9.10",
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}
