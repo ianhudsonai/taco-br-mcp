@@ -22,8 +22,7 @@
   },
   "files": [
     "dist",
-    "data/foods.json",
-    "data/household.json",
+    "!dist/*.map",
     "README.md",
     "LICENSE",
     "NOTICE.md"
