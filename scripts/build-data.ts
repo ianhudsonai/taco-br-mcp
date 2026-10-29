@@ -219,11 +219,12 @@ async function main() {
     encoding: 'nutrient value = number | {"trace":true} (Tr) | null (NA, not analyzed)',
     count: foods.length
   };
-  const nutrientDefs = NUTRIENTS.map(({ key, unit, label_pt, label_en }) => ({
+  const nutrientDefs = NUTRIENTS.map(({ key, unit, label_pt, label_en, decimals }) => ({
     key,
     unit,
     label_pt,
-    label_en
+    label_en,
+    decimals
   }));
   writeFileSync(join(root, 'data/foods.json'), serialize(meta, nutrientDefs, foods));
   console.error(`[build-data] wrote data/foods.json (${foods.length} foods)`);

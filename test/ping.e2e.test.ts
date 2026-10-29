@@ -1,18 +1,11 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { Client } from '@modelcontextprotocol/client';
-import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
-import { fileURLToPath } from 'node:url';
-import { execFileSync } from 'node:child_process';
+import type { Client } from '@modelcontextprotocol/client';
+import { connect } from './helpers/client.js';
 
-const root = fileURLToPath(new URL('..', import.meta.url));
 let client: Client;
 
 beforeAll(async () => {
-  execFileSync('npm', ['run', 'build'], { cwd: root, stdio: 'ignore' });
-  client = new Client({ name: 'taco-test', version: '0.0.0' });
-  await client.connect(
-    new StdioClientTransport({ command: 'node', args: ['dist/server.js'], cwd: root })
-  );
+  client = await connect();
 });
 
 afterAll(async () => {
