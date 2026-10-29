@@ -21,7 +21,13 @@ const text = (r: { content?: unknown }) => JSON.stringify(r.content);
 describe('tool contract', () => {
   it('registers the tools, all read-only, with output schemas', async () => {
     const { tools } = await client.listTools();
-    expect(tools.map((t) => t.name).sort()).toEqual(['get_nutrients', 'ping', 'search_food']);
+    expect(tools.map((t) => t.name).sort()).toEqual([
+      'calc_meal',
+      'compare_foods',
+      'get_nutrients',
+      'ping',
+      'search_food'
+    ]);
     for (const tool of tools) {
       expect(tool.annotations?.readOnlyHint, tool.name).toBe(true);
       expect(tool.outputSchema, tool.name).toBeDefined();

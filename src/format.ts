@@ -17,10 +17,18 @@ export function formatValue(v: NutrientValue, unit: string): string {
   return `${v} ${unit}`;
 }
 
+/** Decimals shown for computed amounts: one more than the table prints, none for energy. */
+export function amountDecimals(def: NutrientDef): number {
+  return def.unit === 'kcal' || def.unit === 'kJ' ? 0 : Math.min(def.decimals + 1, 3);
+}
+
+export function roundAmount(n: number, def: NutrientDef): number {
+  return Number(n.toFixed(amountDecimals(def)));
+}
+
 /** Scales a per-100 g table value to `grams`. Traces and missing values stay as they are. */
 export function scaleValue(v: NutrientValue, grams: number, def: NutrientDef): NutrientValue {
   if (v === null || isTrace(v)) return v;
   if (grams === 100) return v;
-  const decimals = def.unit === 'kcal' || def.unit === 'kJ' ? 0 : Math.min(def.decimals + 1, 3);
-  return Number(((v * grams) / 100).toFixed(decimals));
+  return roundAmount((v * grams) / 100, def);
 }
