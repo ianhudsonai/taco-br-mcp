@@ -22,7 +22,8 @@
   },
   "files": [
     "dist",
-    "data",
+    "data/foods.json",
+    "data/household.json",
     "README.md",
     "LICENSE",
     "NOTICE.md"
@@ -35,7 +36,8 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "inspect": "npm run build && npx @modelcontextprotocol/inspector node ./dist/server.js",
-    "prepublishOnly": "npm run lint && npm run typecheck && npm run build && npm test"
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run build && npm test",
+    "build:data": "tsx scripts/build-data.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.4.0",
@@ -45,9 +47,11 @@
     "@eslint/js": "^10.0.1",
     "@modelcontextprotocol/client": "^2.4.0",
     "@types/node": "^26.6.6",
+    "csv-parse": "^7.0.3",
     "eslint": "^10.13.0",
     "prettier": "^3.9.10",
     "tsup": "^9.0.0",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1",
     "vitest": "^5.0.5"

@@ -1,0 +1,14 @@
+{
+  "repo": "https://github.com/brolesi/taco",
+  "sha": "b800c910dfc9d2e8e6bab45dd42e5b8f5167b466",
+  "files": {
+    "taco_composicao.csv": {
+      "path": "data/processed/taco/taco_composicao.csv",
+      "sha256": "7dee98c4562c4faecc713712d5ae9f909a2a43a8fa4f10c81d3d52fc5cad6058"
+    },
+    "pof_medidas_caseiras.csv": {
+      "path": "data/processed/pof/pof_medidas_caseiras.csv",
+      "sha256": "baf300288eb153d94592ff3818e87641feeb996da23b3b8ed99fd5e5e2e65ff8"
+    }
+  }
+}

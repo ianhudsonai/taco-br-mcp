@@ -1,0 +1,121 @@
+{
+  "_comment": "Hand-curated TACO -> POF/IBGE mapping for household measures (starter set). TACO and POF share no key, so each entry names the POF food code + preparation code and the measures judged reliable (source description matches the measure). Add entries here, then run `npm run build:data`.",
+  "entries": [
+    {
+      "taco_id": 3,
+      "pof_code": "6300101",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE SOPA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE CHA",
+        "COLHER DE ARROZ/SERVIR",
+        "CONCHA",
+        "ESCUMADEIRA",
+        "PRATO FUNDO",
+        "PRATO RASO",
+        "PRATO DE SOBREMESA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 1,
+      "pof_code": "6300201",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE SOPA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE CHA",
+        "COLHER DE ARROZ/SERVIR",
+        "CONCHA",
+        "ESCUMADEIRA",
+        "PRATO FUNDO",
+        "PRATO RASO",
+        "PRATO DE SOBREMESA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 561,
+      "pof_code": "6303102",
+      "pof_prep": "99",
+      "note": "POF has one generic bean entry (preto, mulatinho, roxo, rosinha...); its measures are sourced from cooked white beans. Approximation for carioca beans.",
+      "measures": [
+        "COLHER DE SOPA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE CHA",
+        "COLHER DE ARROZ/SERVIR",
+        "CONCHA",
+        "ESCUMADEIRA",
+        "PRATO FUNDO",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 567,
+      "pof_code": "6303102",
+      "pof_prep": "99",
+      "note": "POF has one generic bean entry (preto, mulatinho, roxo, rosinha...); its measures are sourced from cooked white beans. Approximation for black beans.",
+      "measures": [
+        "COLHER DE SOPA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE CHA",
+        "COLHER DE ARROZ/SERVIR",
+        "CONCHA",
+        "ESCUMADEIRA",
+        "PRATO FUNDO",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 488,
+      "pof_code": "7803301",
+      "pof_prep": "2",
+      "note": "POF preparation 2 is labeled 'cozido' (typo 'CROZIDO(A)' upstream); the unit weight is that of a medium boiled egg.",
+      "measures": ["UNIDADE", "BANDA", "PORCAO"]
+    },
+    {
+      "taco_id": 53,
+      "pof_code": "8000105",
+      "pof_prep": "99",
+      "note": "POF 'PAO DE SAL' (source: pão francês).",
+      "measures": ["UNIDADE", "METADE", "PORCAO"]
+    },
+    {
+      "taco_id": 410,
+      "pof_code": "7800401",
+      "pof_prep": "3",
+      "note": "POF generic chicken breast (grilled preparation); weights are of a medium fillet/breast, not specific to skinless.",
+      "measures": ["FILE", "PEITO", "PORCAO"]
+    },
+    {
+      "taco_id": 182,
+      "pof_code": "6801101",
+      "pof_prep": "1",
+      "note": "POF generic banana entry; unit weights are those of banana prata.",
+      "measures": ["UNIDADE", "UNIDADE PEQUENA", "METADE", "FATIA", "PORCAO"]
+    },
+    {
+      "taco_id": 458,
+      "pof_code": "7900101",
+      "pof_prep": "99",
+      "measures": [
+        "COPO AMERICANO",
+        "COPO MEDIO",
+        "COPO GRANDE",
+        "COPO DE REQUEIJAO",
+        "XICARA DE CHA",
+        "XICARA DE CAFE",
+        "COPO DE CAFEZINHO",
+        "CANECA"
+      ]
+    },
+    {
+      "taco_id": 129,
+      "pof_code": "6400601",
+      "pof_prep": "2",
+      "note": "POF 'MANDIOCA' (source: aipim cozido).",
+      "measures": ["COLHER DE SOPA", "COLHER DE ARROZ/SERVIR", "PEDACO", "PORCAO"]
+    }
+  ]
+}
