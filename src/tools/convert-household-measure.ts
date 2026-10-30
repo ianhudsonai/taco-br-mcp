@@ -128,7 +128,9 @@ export function registerConvertHouseholdMeasure(server: McpServer): void {
             `Nenhum alimento da TACO corresponde a "${food_query}".`
           );
         }
-        if (hits.length > 1) {
+        // A typo-corrected match is a guess about what the user meant: confirm it with an id.
+        const corrected = hits[0]!.corrected;
+        if (hits.length > 1 || corrected) {
           const candidates = hits.slice(0, 10).map((h) => ({
             id: h.food.id,
             name: h.food.name,
@@ -138,11 +140,17 @@ export function registerConvertHouseholdMeasure(server: McpServer): void {
             {
               status: 'ambiguous_food',
               candidates,
-              notes: ['Mais de um alimento corresponde: chame de novo com food_id.'],
+              notes: [
+                corrected
+                  ? `Nada corresponde a "${food_query}" como escrito; talvez seja "${corrected}". Confirme chamando de novo com food_id.`
+                  : 'Mais de um alimento corresponde: chame de novo com food_id.'
+              ],
               ...base
             },
             [
-              `"${food_query}" corresponde a ${hits.length} alimentos; escolha um id:`,
+              corrected
+                ? `Nada corresponde a "${food_query}" como escrito; talvez seja "${corrected}". Escolha um id:`
+                : `"${food_query}" corresponde a ${hits.length} alimentos; escolha um id:`,
               ...candidates.map(
                 (c) =>
                   `- [${c.id}] ${c.name}${c.has_household_measures ? '' : ' (sem medidas caseiras curadas)'}`

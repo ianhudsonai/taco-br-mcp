@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { FOODS } from '../src/data/foods.js';
 import { searchFoods, stem, tokenize } from '../src/search.js';
+import { SYNONYMS } from '../src/synonyms.js';
 
 const ids = (query: string) => searchFoods(query).map((h) => h.food.id);
 
@@ -86,12 +86,109 @@ describe('searchFoods', () => {
       expect(hits[0]!.via).toBeUndefined();
     });
 
-    it('every synonym target exists in the table', () => {
-      const names = FOODS.map((f) => tokenize(f.name).join(' '));
-      for (const target of ['mandioca', 'abobora', 'tangerina', 'mozarela', 'pao frances']) {
-        const first = target.split(' ')[0]!;
-        expect(names.some((n) => n.includes(first))).toBe(true);
+    it('every alias finds at least one food', () => {
+      for (const [from, targets] of SYNONYMS) {
+        for (const target of targets) {
+          expect(searchFoods(target).length, `${from} -> ${target}`).toBeGreaterThan(0);
+        }
       }
+    });
+
+    it('aliases are written in normalized form', () => {
+      for (const [from, targets] of SYNONYMS) {
+        for (const phrase of [from, ...targets]) {
+          expect(tokenize(phrase).join(' '), phrase).toBe(phrase);
+        }
+      }
+    });
+
+    it.each([
+      ['mandioquinha', 86],
+      ['batata salsa', 86],
+      ['abóbora japonesa', 64],
+      ['filé mignon', 357],
+      ['contrafilé grelhado', 346],
+      ['arroz branco cozido', 3],
+      ['feijão de corda cozido', 563],
+      ['leite em pó', 459],
+      ['strogonoff de frango', 538],
+      ['carne de porco', 427],
+      ['aipim frito', 132],
+      ['peito de frango no forno', 406],
+      ['frango na chapa', 410],
+      ['fruta do conde', 246]
+    ])('"%s" -> %i', (query, id) => {
+      expect(ids(query)).toContain(id);
+    });
+
+    it('chains aliases', () => {
+      expect(ids('bolacha água e sal')).toEqual([13]);
+    });
+
+    it('ignores plural and gender in aliases', () => {
+      expect(ids('mandioquinhas')).toEqual(ids('mandioquinha'));
+    });
+  });
+
+  describe('typos', () => {
+    it.each([
+      ['feijao pretto cozido', 567],
+      ['beringela', 96],
+      ['xuxu', 113],
+      ['hamburger', 417],
+      ['yogurte natural', 448],
+      ['frango gelhado', 410],
+      ['quejo prato', 467],
+      ['banana pratta', 182],
+      ['mussarella', 463],
+      ['abacachi', 164],
+      ['macaxera', 129],
+      ['assucar cristal', 492],
+      ['taiti', 220],
+      ['tomte', 157]
+    ])('"%s" is corrected and finds %i', (query, id) => {
+      const hit = searchFoods(query).find((h) => h.food.id === id);
+      expect(hit?.corrected).toBeDefined();
+    });
+
+    it('says what it corrected to', () => {
+      expect(searchFoods('feijao pretto cozido')[0]).toMatchObject({
+        food: { id: 567 },
+        corrected: 'feijao preto cozido'
+      });
+    });
+
+    it('only corrects when the query as typed finds nothing', () => {
+      expect(searchFoods('feijao preto cozido').every((h) => h.corrected === undefined)).toBe(true);
+      expect(searchFoods('aipim').every((h) => h.corrected === undefined)).toBe(true);
+    });
+
+    it('returns every food of the corrected word, not just one', () => {
+      const hits = searchFoods('mandiocaa');
+      expect(hits.length).toBeGreaterThan(1);
+      expect(hits.every((h) => tokenize(h.food.name).includes('mandioca'))).toBe(true);
+    });
+
+    it('does not turn a real but absent word into a different food', () => {
+      for (const query of [
+        'peixe',
+        'pizza',
+        'sorvete',
+        'brigadeiro',
+        'marmita',
+        'hamburguer de frango'
+      ]) {
+        expect(searchFoods(query), query).toEqual([]);
+      }
+    });
+
+    it('leaves very short words alone', () => {
+      expect(searchFoods('ovvo')).toEqual([]);
+      expect(searchFoods('uvo')).toEqual([]);
+    });
+
+    it('is deterministic', () => {
+      expect(ids('feijao pretto')).toEqual(ids('feijao pretto'));
     });
   });
 });
