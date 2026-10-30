@@ -40,14 +40,16 @@ A public instance runs at `https://taco-br-mcp.taco-br-mcp.workers.dev/mcp` (ope
 
 ## Tools
 
-| Tool                        | What it does                                                                                                                                                                                                        |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `search_food`               | Find foods by Portuguese name (accent-insensitive, a few synonyms such as aipim/macaxeira). Returns ids and kcal per 100 g.                                                                                         |
-| `get_nutrients`             | Full composition of one food by id, per 100 g or scaled to a number of grams. Trace (`Tr`) is `{"trace":true}` and a value the table does not publish is `null`, never 0.                                           |
-| `calc_meal`                 | Sum nutrients over `[{food_id, grams}]` or `[{food_id, household_measure, quantity}]`. A total is flagged `is_lower_bound` (and the foods without data are named) when some item has no data for that nutrient.     |
-| `compare_foods`             | 2 to 10 foods side by side on chosen nutrients, per 100 g. Missing data stays `null`.                                                                                                                               |
-| `convert_household_measure` | "2 colheres de sopa" of a food to grams, from the IBGE POF table through a hand-curated mapping (69 foods so far). Ambiguous food names return candidates; uncovered foods or measures are reported, never guessed. |
-| `ping`                      | Health check.                                                                                                                                                                                                       |
+| Tool                        | What it does                                                                                                                                                                                                            |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `search_food`               | Find foods by Portuguese name (accent-insensitive, a few synonyms such as aipim/macaxeira). Returns ids and kcal per 100 g.                                                                                             |
+| `get_nutrients`             | Full composition of one food by id, per 100 g or scaled to a number of grams. Trace (`Tr`) is `{"trace":true}` and a value the table does not publish is `null`, never 0.                                               |
+| `get_fatty_acids`           | Fatty acid profile of one food (saturated, mono/polyunsaturated, omega-3 and -6, EPA, DHA, trans, individual acids). Only 423 of 597 foods are in that TACO table; for the others it says `available: false`, not zero. |
+| `get_amino_acids`           | Amino acid profile of one food (lysine, leucine, tryptophan...). TACO has it for only 26 foods; for any other it says so and lists the 26.                                                                              |
+| `calc_meal`                 | Sum nutrients over `[{food_id, grams}]` or `[{food_id, household_measure, quantity}]`. A total is flagged `is_lower_bound` (and the foods without data are named) when some item has no data for that nutrient.         |
+| `compare_foods`             | 2 to 10 foods side by side on chosen nutrients, per 100 g. Missing data stays `null`.                                                                                                                                   |
+| `convert_household_measure` | "2 colheres de sopa" of a food to grams, from the IBGE POF table through a hand-curated mapping (69 foods so far). Ambiguous food names return candidates; uncovered foods or measures are reported, never guessed.     |
+| `ping`                      | Health check.                                                                                                                                                                                                           |
 
 All tools are read-only. Every response cites _TACO 4ª ed. (NEPA/UNICAMP, 2011)_.
 
@@ -55,6 +57,7 @@ All tools are read-only. Every response cites _TACO 4ª ed. (NEPA/UNICAMP, 2011)
 
 - `Tr` (trace, below the quantification limit) is `{"trace": true}`, never 0.
 - A value the table does not publish is `null` and shown as "sem dado na TACO", never 0. The source marks these cells in three ways (`NA`, `*` for "analyses under re-evaluation", or blank); the processed CSV merges them, so the server does not tell them apart. Whole milk, for example, has no published energy or protein.
+- Fatty and amino acids come from separate TACO tables that cover only part of the foods (423 and 26 of 597). A food outside the table gets `available: false`, never a row of zeros. In the amino acid table the TACO prints `0,00` for amounts under 0.005 g/100 g; that is a published value (shown as 0 or a small number), not missing data.
 - `calc_meal` totals are **lower bounds** when an item lacks data for a nutrient: the response says which foods are missing.
 - Household weights are POF/IBGE averages, not your plate. Only foods and measures whose POF description matches the food were mapped; anything else is reported as not covered.
 

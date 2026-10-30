@@ -3,6 +3,8 @@ import { SERVER_NAME, SERVER_VERSION } from './constants.js';
 import { registerCalcMeal } from './tools/calc-meal.js';
 import { registerConvertHouseholdMeasure } from './tools/convert-household-measure.js';
 import { registerCompareFoods } from './tools/compare-foods.js';
+import { registerGetAminoAcids } from './tools/get-amino-acids.js';
+import { registerGetFattyAcids } from './tools/get-fatty-acids.js';
 import { registerGetNutrients } from './tools/get-nutrients.js';
 import { registerPing } from './tools/ping.js';
 import { registerSearchFood } from './tools/search-food.js';
@@ -15,5 +17,7 @@ export function createServer(): McpServer {
   registerCalcMeal(server);
   registerCompareFoods(server);
   registerConvertHouseholdMeasure(server);
+  registerGetFattyAcids(server);
+  registerGetAminoAcids(server);
   return server;
 }
