@@ -9,7 +9,7 @@ This file only routes. Facts live in the files linked below.
 
 - `npm run lint && npm run typecheck && npm test` — must pass before any commit
 - `npm run build` — tsup to `dist/`
-- `npm run build:data` — regenerate `data/foods.json` and `data/household.json` from the pinned CSVs (add `-- --fetch` to re-download them from the pinned SHA)
+- `npm run build:data` — regenerate `data/foods.json`, `data/household.json` and `data/profiles.json` from the pinned CSVs (add `-- --fetch` to re-download them from the pinned SHA)
 - `npm run inspect` — build and open MCP Inspector against `dist/server.js`
 
 ## Layout
@@ -19,10 +19,10 @@ This file only routes. Facts live in the files linked below.
 - `src/node-http.ts` (node:http adapter), `src/worker.ts` (Cloudflare Workers entry), `src/rate-limit.ts`; `wrangler.toml` — Worker config; `docs/remote.md` — deploy and ChatGPT setup
 - `src/create-server.ts` — builds the McpServer and registers every tool
 - `src/search.ts` — food search (accents, plurals, synonyms, typo correction); `src/synonyms.ts` — hand-written aliases, each checked against the table by `test/search.test.ts`
-- `src/tools/<tool>.ts` — one file per tool, exports `registerX(server)`
+- `src/tools/<tool>.ts` — one file per tool, exports `registerX(server)`; `get_fatty_acids` and `get_amino_acids` are thin wrappers over `src/profile-tool.ts`, data in `src/data/profiles.ts`
 - `src/constants.ts` — server name/version and the citation string
-- `scripts/build-data.ts` — CSV -> JSON pipeline; `scripts/nutrients.ts` and `scripts/measures.ts` hold the column and measure-label tables; `src/household.ts` matches user wording to measures
-- `data/foods.json`, `data/household.json` — generated, committed, shipped in the package; never edit by hand
+- `scripts/build-data.ts` — CSV -> JSON pipeline (`scripts/build-profiles.ts` for fatty/amino acids, `scripts/upstream.ts` for the pinned-CSV loader); `scripts/nutrients.ts`, `scripts/profiles.ts` and `scripts/measures.ts` hold the column and measure-label tables; `src/household.ts` matches user wording to measures
+- `data/foods.json`, `data/household.json`, `data/profiles.json` — generated, committed, shipped in the package; never edit by hand
 - `data/raw/brolesi/` — pinned upstream CSVs (brolesi/taco) + `UPSTREAM.json` (commit SHA and sha256); never edit by hand
 - `data/curation/household-map.json` — the only hand-edited data file (TACO -> POF mapping)
 - `test/` — vitest; `*.e2e.test.ts` talk to the built server through the MCP client; `data.test.ts` checks the data against values transcribed from the official PDF
@@ -38,7 +38,10 @@ This file only routes. Facts live in the files linked below.
 5. Data semantics: `Tr` -> `{ trace: true }`; empty/missing -> `null`; never `0`.
    The only zeros that were not measured are the 4 negative carbohydrate means,
    clamped to 0 with a `notes` entry; surface that note. Never invent or estimate
-   a value that is not in the table.
+   a value that is not in the table. Fatty/amino acid tables cover only 423/26 foods: a food outside
+   one gets `available: false`, never a row of nulls or zeros. Amino acids have a published `0`
+   (TACO prints 0,00 under 0.005 g/100 g); that 0 is data, not missing. TACO prints the amino acid
+   row of Maria mole (504) under number 468; `build-profiles.ts` corrects it with a note.
 6. `calc_meal` totals are lower bounds when any ingredient value is missing, and
    the response must say so.
 7. Household measures (TACO <-> POF) have no shared key. Use
