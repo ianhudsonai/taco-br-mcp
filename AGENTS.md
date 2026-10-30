@@ -44,7 +44,10 @@ This file only routes. Facts live in the files linked below.
    `data/curation/household-map.json` only; do not fuzzy-match. A food without an
    entry has no household measures: say so, do not guess. When adding an entry,
    check the POF `descricao_fonte` of every measure (it often belongs to another
-   food, e.g. flour instead of cooked couscous) and keep only the matching ones.
+   food, e.g. flour instead of cooked couscous) and keep only the matching ones. The POF preparation
+   code is not reliable either (rows coded "cru" often describe the cooked food): trust
+   the source text. Foods deliberately left out, with the reason, are listed under
+   `excluded` in the map file; a test keeps them out.
 8. Add a new tool = new file in `src/tools/` + one line in `create-server.ts` +
    a test. Keep tool descriptions short; they are read by models.
 9. Changing `data/raw/` or the pinned SHA means rerunning `npm run build:data`,
