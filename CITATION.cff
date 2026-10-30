@@ -4,7 +4,7 @@ title: 'taco-br-mcp'
 abstract: 'MCP server that answers with exact values from the Tabela Brasileira de Composição de Alimentos (TACO), 4th edition.'
 type: software
 license: MIT
-version: 0.1.0
+version: 0.1.1
 repository-code: 'https://github.com/ianhudsonai/taco-br-mcp'
 authors:
   - alias: 'ianhudsonai'
