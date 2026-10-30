@@ -46,7 +46,7 @@ A public instance runs at `https://taco-br-mcp.taco-br-mcp.workers.dev/mcp` (ope
 | `get_nutrients`             | Full composition of one food by id, per 100 g or scaled to a number of grams. Trace (`Tr`) is `{"trace":true}` and a value the table does not publish is `null`, never 0.                                           |
 | `calc_meal`                 | Sum nutrients over `[{food_id, grams}]` or `[{food_id, household_measure, quantity}]`. A total is flagged `is_lower_bound` (and the foods without data are named) when some item has no data for that nutrient.     |
 | `compare_foods`             | 2 to 10 foods side by side on chosen nutrients, per 100 g. Missing data stays `null`.                                                                                                                               |
-| `convert_household_measure` | "2 colheres de sopa" of a food to grams, from the IBGE POF table through a hand-curated mapping (69 foods so far). Ambiguous food names return candidates; uncovered foods or measures are reported, never guessed. |
+| `convert_household_measure` | "2 colheres de sopa" of a food to grams, from the IBGE POF table through a hand-curated mapping (204 foods so far). Ambiguous food names return candidates; uncovered foods or measures are reported, never guessed. |
 | `ping`                      | Health check.                                                                                                                                                                                                       |
 
 All tools are read-only. Every response cites _TACO 4ª ed. (NEPA/UNICAMP, 2011)_.

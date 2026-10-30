@@ -19,6 +19,9 @@ export const MEASURE_LABELS: Record<string, { key: string; pt: string }> = {
   PEDACO: { key: 'pedaco', pt: 'pedaço' },
   RAMO: { key: 'ramo', pt: 'ramo' },
   CACHO: { key: 'cacho', pt: 'cacho' },
+  GOMO: { key: 'gomo', pt: 'gomo' },
+  PUNHADO: { key: 'punhado', pt: 'punhado' },
+  RODELA: { key: 'rodela', pt: 'rodela' },
   FOLHA: { key: 'folha', pt: 'folha' },
   BIFE: { key: 'bife', pt: 'bife' },
   FILE: { key: 'file', pt: 'filé' },
@@ -31,5 +34,7 @@ export const MEASURE_LABELS: Record<string, { key: string; pt: string }> = {
   'XICARA DE CHA': { key: 'xicara_de_cha', pt: 'xícara de chá' },
   'XICARA DE CAFE': { key: 'xicara_de_cafe', pt: 'xícara de café' },
   'COPO DE CAFEZINHO': { key: 'copo_de_cafezinho', pt: 'copo de cafezinho' },
-  CANECA: { key: 'caneca', pt: 'caneca' }
+  CANECA: { key: 'caneca', pt: 'caneca' },
+  'LATA (350 ML)': { key: 'lata_350ml', pt: 'lata (350 ml)' },
+  'GARRAFA (600 ML)': { key: 'garrafa_600ml', pt: 'garrafa (600 ml)' }
 };
