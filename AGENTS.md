@@ -18,6 +18,7 @@ This file only routes. Facts live in the files linked below.
 - `src/http-app.ts` — web-standard `Request -> Response` app (`createMcpHandler`, `/mcp`, `/health`, CORS, 429); shared by Node and the Worker
 - `src/node-http.ts` (node:http adapter), `src/worker.ts` (Cloudflare Workers entry), `src/rate-limit.ts`; `wrangler.toml` — Worker config; `docs/remote.md` — deploy and ChatGPT setup
 - `src/create-server.ts` — builds the McpServer and registers every tool
+- `src/search.ts` — food search (accents, plurals, synonyms, typo correction); `src/synonyms.ts` — hand-written aliases, each checked against the table by `test/search.test.ts`
 - `src/tools/<tool>.ts` — one file per tool, exports `registerX(server)`
 - `src/constants.ts` — server name/version and the citation string
 - `scripts/build-data.ts` — CSV -> JSON pipeline; `scripts/nutrients.ts` and `scripts/measures.ts` hold the column and measure-label tables; `src/household.ts` matches user wording to measures
