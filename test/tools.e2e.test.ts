@@ -148,7 +148,7 @@ describe('get_nutrients', () => {
     expect(get('cholesterol_mg')).toMatchObject({ per_100g: null, amount: null });
     expect(out.trace_nutrients).toContain('vitamin_c_mg');
     expect(out.not_analyzed_nutrients).toContain('cholesterol_mg');
-    expect(text(r)).toMatch(/Sem dado \(NA, não é zero\)/);
+    expect(text(r)).toMatch(/Sem dado na TACO \(não é zero\)/);
   });
 
   it('carries the note of foods with a negative carbohydrate mean', async () => {

@@ -115,7 +115,7 @@ describe('calc_meal', () => {
     const t = (only.structuredContent as MealOut).totals[0]!;
     expect(t.total).toBeNull();
     expect(t.is_lower_bound).toBe(false);
-    expect(text(only)).toMatch(/sem dado em nenhum item/);
+    expect(text(only)).toMatch(/sem dado na TACO em nenhum item/);
   });
 
   it('gives the per-item amounts it summed', async () => {

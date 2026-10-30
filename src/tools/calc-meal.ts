@@ -43,11 +43,11 @@ const outputSchema = z.object({
         is_lower_bound: z
           .boolean()
           .describe(
-            'True when at least one item has no data (NA) for this nutrient: the real total is higher than this number.'
+            'True when at least one item has no value in the TACO table for this nutrient: the real total is higher than this number.'
           ),
         not_analyzed_in: z
           .array(z.string())
-          .describe('Names of the items with no data (NA) for this nutrient.'),
+          .describe('Names of the items with no value in the TACO table for this nutrient.'),
         trace_in: z
           .array(z.string())
           .describe(
@@ -243,7 +243,7 @@ export function registerCalcMeal(server: McpServer): void {
       ];
       if (!complete) {
         notes.push(
-          'Nutrientes sem dado (NA) em algum item não entram na soma: onde is_lower_bound é verdadeiro, o total real é maior que o informado.'
+          'Nutrientes sem dado na TACO em algum item não entram na soma: onde is_lower_bound é verdadeiro, o total real é maior que o informado.'
         );
       }
       if (usedHousehold) {
@@ -285,7 +285,7 @@ export function registerCalcMeal(server: McpServer): void {
             return `- ${t.label_pt}: pelo menos ${value} (limite inferior; sem dado em: ${t.not_analyzed_in.join('; ')})`;
           }
           if (t.total === null) {
-            return `- ${t.label_pt}: sem dado em nenhum item (NA, não é zero)`;
+            return `- ${t.label_pt}: sem dado na TACO em nenhum item (não é zero)`;
           }
           return `- ${t.label_pt}: ${value}${t.trace_in.length ? ` (+ traço em: ${t.trace_in.join('; ')})` : ''}`;
         }),

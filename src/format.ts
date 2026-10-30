@@ -4,7 +4,7 @@ import type { NutrientDef, NutrientValue } from './data/foods.js';
 export const nutrientValueSchema = z
   .union([z.number(), z.object({ trace: z.literal(true) }), z.null()])
   .describe(
-    'A number in the nutrient unit; {"trace":true} when the table reports a trace (Tr, below the quantification limit); null when the nutrient was not analyzed (NA). Never read null or trace as 0.'
+    'A number in the nutrient unit; {"trace":true} when the table reports a trace (Tr, below the quantification limit); null when the TACO table publishes no value (not analyzed, not applicable or under re-evaluation). Never read null or trace as 0.'
   );
 
 export function isTrace(v: NutrientValue): v is { trace: true } {
@@ -12,7 +12,7 @@ export function isTrace(v: NutrientValue): v is { trace: true } {
 }
 
 export function formatValue(v: NutrientValue, unit: string): string {
-  if (v === null) return 'sem dado (NA)';
+  if (v === null) return 'sem dado na TACO';
   if (isTrace(v)) return 'traço (Tr)';
   return `${v} ${unit}`;
 }

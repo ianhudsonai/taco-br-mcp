@@ -7,7 +7,7 @@
  *
  * Value encoding for every nutrient: number | { "trace": true } | null
  *   - upstream 1e-05 (TACO "Tr")     -> { "trace": true }
- *   - upstream empty (TACO "NA")     -> null
+ *   - upstream empty (TACO NA, * or blank) -> null
  */
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -216,7 +216,8 @@ async function main() {
       sha: upstream.sha,
       file: upstream.files['taco_composicao.csv']!.path
     },
-    encoding: 'nutrient value = number | {"trace":true} (Tr) | null (NA, not analyzed)',
+    encoding:
+      'nutrient value = number | {"trace":true} (Tr) | null (no value published in the table)',
     count: foods.length
   };
   const nutrientDefs = NUTRIENTS.map(({ key, unit, label_pt, label_en, decimals }) => ({

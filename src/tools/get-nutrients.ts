@@ -30,7 +30,9 @@ const outputSchema = z.object({
     )
     .describe('Requested nutrients, in table order.'),
   trace_nutrients: z.array(z.string()).describe('Keys reported as trace (Tr).'),
-  not_analyzed_nutrients: z.array(z.string()).describe('Keys with no data (NA); not zero.'),
+  not_analyzed_nutrients: z
+    .array(z.string())
+    .describe('Keys with no value in the TACO table; not zero.'),
   notes: z.array(z.string()).describe('Caveats about this food or this answer.'),
   source: z.string().describe('Citation for the data.')
 });
@@ -116,7 +118,7 @@ export function registerGetNutrients(server: McpServer): void {
         `[${food.id}] ${food.name} (${food.category}) — ${basis} g de parte comestível`,
         ...rows.map((r) => `- ${r.label_pt}: ${formatValue(r.amount, r.unit)}`),
         ...(output.not_analyzed_nutrients.length
-          ? [`Sem dado (NA, não é zero): ${output.not_analyzed_nutrients.join(', ')}`]
+          ? [`Sem dado na TACO (não é zero): ${output.not_analyzed_nutrients.join(', ')}`]
           : []),
         ...notes.slice(1),
         `Fonte: ${SOURCE}`

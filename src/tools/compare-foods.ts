@@ -86,7 +86,7 @@ export function registerCompareFoods(server: McpServer): void {
       const hasGaps = rows.some((r) => r.values.some((v) => v === null));
       if (hasGaps) {
         notes.push(
-          'null = sem dado (NA), não zero: não conclua que o alimento tem menos desse nutriente.'
+          'null = sem dado na TACO, não zero: não conclua que o alimento tem menos desse nutriente.'
         );
       }
 
