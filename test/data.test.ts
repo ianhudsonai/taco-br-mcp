@@ -324,7 +324,7 @@ describe('values checked against the official PDF', () => {
   });
 });
 
-describe('household.json (curated starter set)', () => {
+describe('household.json (curated)', () => {
   const household = JSON.parse(readFileSync(join(root, 'data/household.json'), 'utf8')) as {
     meta: { source: string; count: number };
     foods: {

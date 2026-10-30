@@ -18,6 +18,7 @@ This file only routes. Facts live in the files linked below.
 - `src/http-app.ts` — web-standard `Request -> Response` app (`createMcpHandler`, `/mcp`, `/health`, CORS, 429); shared by Node and the Worker
 - `src/node-http.ts` (node:http adapter), `src/worker.ts` (Cloudflare Workers entry), `src/rate-limit.ts`; `wrangler.toml` — Worker config; `docs/remote.md` — deploy and ChatGPT setup
 - `src/create-server.ts` — builds the McpServer and registers every tool
+- `src/search.ts` — food search (accents, plurals, synonyms, typo correction); `src/synonyms.ts` — hand-written aliases, each checked against the table by `test/search.test.ts`
 - `src/tools/<tool>.ts` — one file per tool, exports `registerX(server)`; `get_fatty_acids` and `get_amino_acids` are thin wrappers over `src/profile-tool.ts`, data in `src/data/profiles.ts`
 - `src/constants.ts` — server name/version and the citation string
 - `scripts/build-data.ts` — CSV -> JSON pipeline (`scripts/build-profiles.ts` for fatty/amino acids, `scripts/upstream.ts` for the pinned-CSV loader); `scripts/nutrients.ts`, `scripts/profiles.ts` and `scripts/measures.ts` hold the column and measure-label tables; `src/household.ts` matches user wording to measures
@@ -47,7 +48,10 @@ This file only routes. Facts live in the files linked below.
    `data/curation/household-map.json` only; do not fuzzy-match. A food without an
    entry has no household measures: say so, do not guess. When adding an entry,
    check the POF `descricao_fonte` of every measure (it often belongs to another
-   food, e.g. flour instead of cooked couscous) and keep only the matching ones.
+   food, e.g. flour instead of cooked couscous) and keep only the matching ones. The POF preparation
+   code is not reliable either (rows coded "cru" often describe the cooked food): trust
+   the source text. Foods deliberately left out, with the reason, are listed under
+   `excluded` in the map file; a test keeps them out.
 8. Add a new tool = new file in `src/tools/` + one line in `create-server.ts` +
    a test. Keep tool descriptions short; they are read by models.
 9. Changing `data/raw/` or the pinned SHA means rerunning `npm run build:data`,
