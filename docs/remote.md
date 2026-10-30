@@ -15,6 +15,7 @@ npx -y taco-br-mcp --http --port 8080 --host 0.0.0.0 --rate-limit 120 --trust-pr
 
 Why Workers: the free plan needs no credit card, has no cold-start sleep (unlike free Render services), and the whole server is ~190 KiB gzipped. The free plan allows 100,000 requests per day; past that, Cloudflare rejects requests instead of billing. The endpoint is `src/worker.ts`; settings are in `wrangler.toml` (300 requests per minute per IP through Cloudflare's Rate Limiting binding).
 
+0. Wrangler (Cloudflare's CLI) needs Node.js 22 or newer; the server itself still runs on Node 20.
 1. Create a free account at <https://dash.cloudflare.com/sign-up> and verify the email.
 2. In the repository: `npm install`, then `npx wrangler login` (opens the browser; approve).
 3. `npm run deploy:worker`. Wrangler prints the URL, like `https://taco-br-mcp.<your-subdomain>.workers.dev`. On the first deploy it asks you to pick the `workers.dev` subdomain.
