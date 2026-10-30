@@ -1,0 +1,173 @@
+{
+  "question": 15,
+  "arm": "mcp",
+  "rep": 1,
+  "model": "claude-sonnet-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 7627,
+    "stop_reason": "end_turn",
+    "session_id": "94247f86-32d7-5999-8183-31a72e5dc70a",
+    "total_cost_usd": 0.0886883,
+    "usage": {
+      "input_tokens": 7,
+      "cache_creation_input_tokens": 16815,
+      "cache_read_input_tokens": 158537,
+      "output_tokens": 532,
+      "output_tokens_details": {
+        "thinking_tokens": 26
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16815,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 279,
+          "cache_read_input_tokens": 43974,
+          "cache_creation_input_tokens": 1630,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1630
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1296,
+        "outputTokens": 222,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0002406,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 200,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5-5": {
+        "inputTokens": 7,
+        "outputTokens": 532,
+        "cacheReadInputTokens": 158537,
+        "cacheCreationInputTokens": 16815,
+        "webSearchRequests": 0,
+        "costUSD": 0.0884477,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 26,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 16815,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "A TACO não traz o valor de energia para esse alimento, então não dá para informar as kcal.\n\nNo registro \"Leite, de vaca, integral\" (id 458), o campo de energia (kcal) está sem dado, ou seja, não foi analisado. O mesmo vale para proteína, lipídeos, carboidrato e umidade. A tabela só informa alguns minerais e vitaminas, como cálcio (123 mg), fósforo (82 mg) e colesterol (10 mg).\n\nNão usei o valor do \"leite de vaca integral, em pó\" (497 kcal/100 g). É outro alimento, concentrado, e não serve como estimativa para o leite líquido.\n\nFonte: TACO 4ª ed. (NEPA/UNICAMP, 2011).\n\nRESPOSTA_FINAL: sem dado",
+    "ttft_ms": 2043,
+    "type": "result",
+    "duration_ms": 9385,
+    "uuid": "798d172d-69fd-47ef-9316-9ac1fb533e31",
+    "ttft_stream_ms": 1348,
+    "time_to_request_ms": 418,
+    "time_to_request_phases_ms": {
+      "other": 25,
+      "system_prompt": 312,
+      "resume_other": 0,
+      "process_user_input": 2,
+      "input_attachments": 17,
+      "input_hooks": 3,
+      "tool_pool_refresh": 3,
+      "init_message": 8,
+      "engine_pickup": 1,
+      "message_prep": 2,
+      "model_config_wait": 1,
+      "autocompact": 2,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 26,
+      "message_normalization": 2,
+      "client_creation": 3,
+      "request_build": 10
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 63,
+    "time_to_request_cpu_ms": 186,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 225,
+    "process_anon_mib_turn_start": 151,
+    "process_rss_mib_result": 217,
+    "process_anon_mib_result": 133,
+    "process_peak_rss_mib": 226,
+    "process_cpu_ms_turn": 752,
+    "process_wall_ms_turn": 9385,
+    "process_cpu_ms_streaming": 146,
+    "process_wall_ms_streaming": 1308,
+    "main_stream_count": 4,
+    "main_stream_event_count": 98,
+    "main_stream_chunk_count": 16,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 11,
+      "cpu_ms": 20,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1349,
+    "time_to_request_from_spawn_ms": 527056,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793329427409.447,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

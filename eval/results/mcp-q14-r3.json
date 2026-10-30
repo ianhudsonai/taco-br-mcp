@@ -1,0 +1,173 @@
+{
+  "question": 14,
+  "arm": "mcp",
+  "rep": 3,
+  "model": "claude-sonnet-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 10149,
+    "stop_reason": "end_turn",
+    "session_id": "94247f86-32d7-5999-8183-31a72e5dc70a",
+    "total_cost_usd": 0.0410832,
+    "usage": {
+      "input_tokens": 9,
+      "cache_creation_input_tokens": 2418,
+      "cache_read_input_tokens": 216835,
+      "output_tokens": 949,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 2418,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 381,
+          "cache_read_input_tokens": 44928,
+          "cache_creation_input_tokens": 595,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 595
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1342,
+        "outputTokens": 171,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.00021970000000000003,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 147,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5-5": {
+        "inputTokens": 9,
+        "outputTokens": 949,
+        "cacheReadInputTokens": 216835,
+        "cacheCreationInputTokens": 2418,
+        "webSearchRequests": 0,
+        "costUSD": 0.040863500000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 2418,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 7,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "A refeição tem **pelo menos 10,1 g de fibra alimentar**, segundo a TACO (4ª ed.). Esse total é um limite inferior, porque a tabela não traz valor de fibra para o frango.\n\n| Alimento (100 g) | Fibra alimentar |\n|---|---|\n| Arroz, tipo 1, cozido | 1,6 g |\n| Feijão, carioca, cozido | 8,5 g |\n| Frango, peito, sem pele, grelhado | sem dado (célula vazia na tabela) |\n\nA soma dos dois valores existentes é 1,6 + 8,5 = 10,1 g. Contei a célula vazia como dado ausente, não como zero. O total real pode ser um pouco maior, mas a TACO não permite saber quanto. Carnes costumam ter fibra praticamente nula.\n\nFonte: TACO 4ª ed. (NEPA/UNICAMP, 2011).\n\nRESPOSTA_FINAL: 10,1 g (soma de arroz 1,6 g + feijão 8,5 g; o frango não tem dado de fibra na TACO)",
+    "ttft_ms": 1799,
+    "type": "result",
+    "duration_ms": 11459,
+    "uuid": "7345b010-0b4a-48d4-8305-64287f0b7e88",
+    "ttft_stream_ms": 1155,
+    "time_to_request_ms": 414,
+    "time_to_request_phases_ms": {
+      "other": 17,
+      "system_prompt": 322,
+      "resume_other": 0,
+      "process_user_input": 2,
+      "input_attachments": 16,
+      "input_hooks": 3,
+      "tool_pool_refresh": 3,
+      "init_message": 4,
+      "engine_pickup": 1,
+      "message_prep": 2,
+      "model_config_wait": 1,
+      "autocompact": 1,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 17,
+      "message_normalization": 1,
+      "client_creation": 15,
+      "request_build": 8
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 82,
+    "time_to_request_cpu_ms": 242,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 232,
+    "process_anon_mib_turn_start": 157,
+    "process_rss_mib_result": 221,
+    "process_anon_mib_result": 138,
+    "process_peak_rss_mib": 239,
+    "process_cpu_ms_turn": 956,
+    "process_wall_ms_turn": 11459,
+    "process_cpu_ms_streaming": 218,
+    "process_wall_ms_streaming": 2445,
+    "main_stream_count": 5,
+    "main_stream_event_count": 137,
+    "main_stream_chunk_count": 29,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 11,
+      "cpu_ms": 19,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1155,
+    "time_to_request_from_spawn_ms": 658298,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793329558903.4404,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

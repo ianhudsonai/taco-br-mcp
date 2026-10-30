@@ -1,0 +1,173 @@
+{
+  "question": 12,
+  "arm": "mcp",
+  "rep": 2,
+  "model": "claude-sonnet-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 8911,
+    "stop_reason": "end_turn",
+    "session_id": "94247f86-32d7-5999-8183-31a72e5dc70a",
+    "total_cost_usd": 0.045458700000000005,
+    "usage": {
+      "input_tokens": 9,
+      "cache_creation_input_tokens": 3976,
+      "cache_read_input_tokens": 216129,
+      "output_tokens": 772,
+      "output_tokens_details": {
+        "thinking_tokens": 61
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3976,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 1,
+          "output_tokens": 366,
+          "cache_read_input_tokens": 44430,
+          "cache_creation_input_tokens": 1593,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1593
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1303,
+        "outputTokens": 147,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0002038,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 126,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5-5": {
+        "inputTokens": 9,
+        "outputTokens": 772,
+        "cacheReadInputTokens": 216129,
+        "cacheCreationInputTokens": 3976,
+        "webSearchRequests": 0,
+        "costUSD": 0.0452549,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 61,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3976,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 5,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "2 ovos de galinha cozidos (unidade média) têm cerca de **12 g de proteína**.\n\n- **Alimento na TACO:** \"Ovo, de galinha, inteiro, cozido/10minutos\", com 13,3 g de proteína por 100 g.\n- **Peso da unidade:** uma unidade média de ovo cozido pesa 45 g (medida caseira da POF/IBGE 2008-2009), então 2 unidades pesam 90 g.\n- **Cálculo:** 13,3 g × 0,9 = 11,97 g de proteína.\n\nEsse peso é uma média da POF, não a pesagem dos seus ovos, então o valor muda se eles forem maiores ou menores.\n\nFonte: TACO 4ª ed. (NEPA/UNICAMP, 2011).\n\nRESPOSTA_FINAL: ≈12 g de proteína (11,97 g)",
+    "ttft_ms": 1815,
+    "type": "result",
+    "duration_ms": 10730,
+    "uuid": "c3e2229c-204b-43d3-a093-702580489a1a",
+    "ttft_stream_ms": 1035,
+    "time_to_request_ms": 378,
+    "time_to_request_phases_ms": {
+      "other": 23,
+      "system_prompt": 281,
+      "resume_other": 0,
+      "process_user_input": 3,
+      "input_attachments": 17,
+      "input_hooks": 3,
+      "tool_pool_refresh": 2,
+      "init_message": 6,
+      "engine_pickup": 1,
+      "message_prep": 1,
+      "model_config_wait": 1,
+      "autocompact": 2,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 25,
+      "message_normalization": 2,
+      "client_creation": 2,
+      "request_build": 8
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 57,
+    "time_to_request_cpu_ms": 260,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 232,
+    "process_anon_mib_turn_start": 158,
+    "process_rss_mib_result": 221,
+    "process_anon_mib_result": 137,
+    "process_peak_rss_mib": 236,
+    "process_cpu_ms_turn": 925,
+    "process_wall_ms_turn": 10730,
+    "process_cpu_ms_streaming": 180,
+    "process_wall_ms_streaming": 3951,
+    "main_stream_count": 5,
+    "main_stream_event_count": 107,
+    "main_stream_chunk_count": 22,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 12,
+      "cpu_ms": 19,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1035,
+    "time_to_request_from_spawn_ms": 578371,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793329478899.4412,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

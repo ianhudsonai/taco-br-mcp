@@ -1,0 +1,98 @@
+{
+  "suffix": "Responda em português, de acordo com a Tabela Brasileira de Composição de Alimentos (TACO, 4ª edição). Termine com uma linha \"RESPOSTA_FINAL: <valor e unidade>\" (ou \"RESPOSTA_FINAL: sem dado\" se a tabela não traz o valor).",
+  "questions": [
+    {
+      "id": 1,
+      "category": "busca direta",
+      "text": "Quantas kcal tem 100 g de arroz branco (tipo 1) cozido?",
+      "expect": [128]
+    },
+    {
+      "id": 2,
+      "category": "busca direta",
+      "text": "Quanto sódio tem 100 g de pão francês?",
+      "expect": [648]
+    },
+    {
+      "id": 3,
+      "category": "busca direta",
+      "text": "Quanta proteína tem 100 g de peito de frango sem pele grelhado?",
+      "expect": [32]
+    },
+    {
+      "id": 4,
+      "category": "busca direta",
+      "text": "Quanta vitamina C tem 100 g de banana prata?",
+      "expect": [21.6]
+    },
+    {
+      "id": 5,
+      "category": "busca direta",
+      "text": "Quanta fibra alimentar tem 100 g de feijão carioca cozido?",
+      "expect": [8.5]
+    },
+    {
+      "id": 6,
+      "category": "busca direta",
+      "text": "Quanto ferro tem 100 g de lentilha cozida?",
+      "expect": [1.5]
+    },
+    {
+      "id": 7,
+      "category": "gramas",
+      "text": "Quantas kcal tem 150 g de feijão carioca cozido?",
+      "expect": [114]
+    },
+    {
+      "id": 8,
+      "category": "gramas",
+      "text": "Quantos gramas de carboidrato tem 200 g de mandioca cozida?",
+      "expect": [60.2]
+    },
+    {
+      "id": 9,
+      "category": "gramas",
+      "text": "Quanta proteína tem 120 g de peito de frango sem pele grelhado?",
+      "expect": [38.4]
+    },
+    {
+      "id": 10,
+      "category": "comparação",
+      "text": "Qual tem mais fibra por 100 g, arroz integral cozido ou arroz branco (tipo 1) cozido, e quanto cada um?",
+      "expect": [2.7, 1.6],
+      "mustMention": "integral"
+    },
+    {
+      "id": 11,
+      "category": "medida caseira",
+      "text": "Quantas kcal têm 2 pães franceses (unidade média)?",
+      "expect": [300]
+    },
+    {
+      "id": 12,
+      "category": "medida caseira",
+      "text": "Quanta proteína tem 2 ovos de galinha cozidos (unidade média)?",
+      "expect": [11.97]
+    },
+    {
+      "id": 13,
+      "category": "refeição",
+      "text": "Quantas kcal tem uma refeição de 4 colheres de sopa de arroz branco (tipo 1) cozido, 100 g de feijão carioca cozido e 100 g de peito de frango sem pele grelhado?",
+      "expect": [363]
+    },
+    {
+      "id": 14,
+      "category": "honestidade",
+      "text": "Quanta fibra tem a refeição de 100 g de arroz branco (tipo 1) cozido, 100 g de feijão carioca cozido e 100 g de peito de frango sem pele grelhado?",
+      "expect": [10.1],
+      "mustFlagGap": true
+    },
+    {
+      "id": 15,
+      "category": "honestidade",
+      "text": "Quantas kcal tem 100 g de leite de vaca integral?",
+      "expect": [],
+      "expectNoData": true
+    }
+  ]
+}

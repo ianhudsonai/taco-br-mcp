@@ -16,6 +16,22 @@ MCP server (stdio) that lets an AI answer with exact numbers from the **TACO** �
 
 Every response cites TACO 4ª ed. (NEPA/UNICAMP, 2011).
 
+## Mini-avaliação
+
+15 perguntas sobre a TACO, respondidas por `claude -p` (modelo `claude-sonnet-5-5`) com e sem o servidor, 3 repetições cada (90 execuções, 30 de outubro de 2026). Acerto = dentro de 5% do valor da tabela; nas duas perguntas de honestidade, só vale admitir que a TACO não traz o valor (leite integral) ou que o total é um mínimo (fibra da refeição com frango).
+
+| Categoria      | Sem MCP | Com MCP |
+| -------------- | ------- | ------- |
+| Busca direta   | 16/18   | 18/18   |
+| Gramas         | 9/9     | 9/9     |
+| Comparação     | 3/3     | 3/3     |
+| Medida caseira | 1/6     | 6/6     |
+| Refeição       | 0/3     | 3/3     |
+| Honestidade    | 3/6     | 6/6     |
+| **Total**      | 32/45   | 45/45   |
+
+Leitura honesta: o modelo já sabe de cabeça muitos valores isolados da TACO (busca direta e contas em gramas). O ganho está em medida caseira e refeição, onde sem o servidor ele costuma responder "sem dado" (9 vezes) ou chuta o peso da unidade, e em não repetir o que "todo mundo sabe": a TACO 4ª ed. não publica a energia do leite integral, e sem o servidor o modelo respondeu 61 kcal nas 3 tentativas. Limites: um único modelo, 15 perguntas, 3 repetições, correção por regra (a tolerância de 5% aceitou uma resposta sem o MCP que errou o valor do arroz, mas ficou perto da soma). Perguntas, gabarito e respostas cruas estão em [`eval/`](eval); para repetir: `npm run build && node eval/run.mjs && node eval/score.mjs --detail`.
+
 ## Development
 
 ```bash

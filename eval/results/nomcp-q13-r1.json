@@ -1,0 +1,173 @@
+{
+  "question": 13,
+  "arm": "nomcp",
+  "rep": 1,
+  "model": "claude-sonnet-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 9010,
+    "stop_reason": "end_turn",
+    "session_id": "94247f86-32d7-5999-8183-31a72e5dc70a",
+    "total_cost_usd": 0.0160235,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1491,
+      "cache_read_input_tokens": 2819,
+      "output_tokens": 955,
+      "output_tokens_details": {
+        "thinking_tokens": 515
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1491,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 955,
+          "cache_read_input_tokens": 2819,
+          "cache_creation_input_tokens": 1491,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1491
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1371,
+        "outputTokens": 173,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.00022360000000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 149,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 955,
+        "cacheReadInputTokens": 2819,
+        "cacheCreationInputTokens": 1491,
+        "webSearchRequests": 0,
+        "costUSD": 0.0157999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 515,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1491,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "A TACO 4ª ed. não traz o peso de \"colher de sopa\", então o total da refeição não sai só da tabela.\n\nValores por 100 g (TACO 4ª ed., NEPA/UNICAMP, 2011):\n\n| Alimento | Porção | kcal |\n|---|---|---|\n| Feijão carioca cozido | 100 g | 76 |\n| Peito de frango sem pele grelhado | 100 g | 159 |\n| Arroz tipo 1 cozido | 4 colheres de sopa | sem dado (128 kcal por 100 g) |\n\n- **Parte calculável:** feijão + frango = 76 + 159 = **235 kcal**. Esse valor é um mínimo, porque falta o arroz.\n- **Arroz:** a TACO dá 128 kcal/100 g (≈ 1,28 kcal/g), mas não converte colheres em gramas.\n- **Estimativa fora da TACO:** se você assumir ~25 g por colher de sopa (medida caseira de outra fonte, não da TACO), 4 colheres dão ~100 g, ou ~128 kcal. O total seria ~363 kcal. O peso real da colher varia conforme o tamanho e o quanto de arroz ela leva.\n\nRESPOSTA_FINAL: sem dado",
+    "ttft_ms": 5073,
+    "type": "result",
+    "duration_ms": 11544,
+    "uuid": "062a2445-289d-4453-8763-b28210631be7",
+    "ttft_stream_ms": 1367,
+    "time_to_request_ms": 374,
+    "time_to_request_phases_ms": {
+      "other": 22,
+      "system_prompt": 311,
+      "resume_other": 0,
+      "process_user_input": 4,
+      "input_attachments": 6,
+      "input_hooks": 4,
+      "tool_pool_refresh": 3,
+      "init_message": 7,
+      "engine_pickup": 1,
+      "message_prep": 2,
+      "model_config_wait": 1,
+      "autocompact": 2,
+      "query_setup": 0,
+      "model_gates": 0,
+      "tool_schema_build": 1,
+      "message_normalization": 1,
+      "client_creation": 3,
+      "request_build": 6
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 59,
+    "time_to_request_cpu_ms": 227,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 219,
+    "process_anon_mib_turn_start": 146,
+    "process_rss_mib_result": 199,
+    "process_anon_mib_result": 119,
+    "process_peak_rss_mib": 224,
+    "process_cpu_ms_turn": 685,
+    "process_wall_ms_turn": 11543,
+    "process_cpu_ms_streaming": 128,
+    "process_wall_ms_streaming": 6706,
+    "main_stream_count": 1,
+    "main_stream_event_count": 101,
+    "main_stream_chunk_count": 34,
+    "input_attachments_detail": {
+      "slowest_producer": "model",
+      "slowest_producer_ms": 4,
+      "cpu_ms": 7,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1367,
+    "time_to_request_from_spawn_ms": 513980,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793329414575.939,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

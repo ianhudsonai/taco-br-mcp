@@ -1,0 +1,173 @@
+{
+  "question": 4,
+  "arm": "mcp",
+  "rep": 1,
+  "model": "claude-sonnet-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 6774,
+    "stop_reason": "end_turn",
+    "session_id": "94247f86-32d7-5999-8183-31a72e5dc70a",
+    "total_cost_usd": 0.0822296,
+    "usage": {
+      "input_tokens": 7,
+      "cache_creation_input_tokens": 15475,
+      "cache_read_input_tokens": 157232,
+      "output_tokens": 440,
+      "output_tokens_details": {
+        "thinking_tokens": 63
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15475,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 1,
+          "output_tokens": 183,
+          "cache_read_input_tokens": 43295,
+          "cache_creation_input_tokens": 969,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 969
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1294,
+        "outputTokens": 126,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.00019240000000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 106,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-sonnet-5-5": {
+        "inputTokens": 7,
+        "outputTokens": 440,
+        "cacheReadInputTokens": 157232,
+        "cacheCreationInputTokens": 15475,
+        "webSearchRequests": 0,
+        "costUSD": 0.0820372,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 63,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15475,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Segundo a TACO (4ª edição, NEPA/UNICAMP, 2011), 100 g de banana prata crua têm **21,6 mg de vitamina C**.\n\nO valor vem do item \"Banana, prata, crua\" (id 182), com base em 100 g de parte comestível.\n\nRESPOSTA_FINAL: 21,6 mg",
+    "ttft_ms": 1908,
+    "type": "result",
+    "duration_ms": 8462,
+    "uuid": "75fc8d0e-e3a9-4bfc-8ef0-22deb8f8753f",
+    "ttft_stream_ms": 1185,
+    "time_to_request_ms": 374,
+    "time_to_request_phases_ms": {
+      "other": 20,
+      "system_prompt": 276,
+      "resume_other": 0,
+      "process_user_input": 4,
+      "input_attachments": 18,
+      "input_hooks": 3,
+      "tool_pool_refresh": 3,
+      "init_message": 6,
+      "engine_pickup": 2,
+      "message_prep": 1,
+      "model_config_wait": 1,
+      "autocompact": 2,
+      "query_setup": 0,
+      "model_gates": 1,
+      "tool_schema_build": 19,
+      "message_normalization": 2,
+      "client_creation": 8,
+      "request_build": 8
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 62,
+    "time_to_request_cpu_ms": 252,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 232,
+    "process_anon_mib_turn_start": 158,
+    "process_rss_mib_result": 220,
+    "process_anon_mib_result": 136,
+    "process_peak_rss_mib": 236,
+    "process_cpu_ms_turn": 815,
+    "process_wall_ms_turn": 8461,
+    "process_cpu_ms_streaming": 125,
+    "process_wall_ms_streaming": 2514,
+    "main_stream_count": 4,
+    "main_stream_event_count": 61,
+    "main_stream_chunk_count": 18,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 12,
+      "cpu_ms": 21,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1185,
+    "time_to_request_from_spawn_ms": 435605,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793329336192.5847,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}
