@@ -1,0 +1,13 @@
+name = "taco-br-mcp"
+main = "src/worker.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Open server (public, read-only data): abuse protection is a per-IP rate limit.
+# ChatGPT calls from a small pool of OpenAI addresses, so keep this generous.
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+  [ratelimits.simple]
+  limit = 300
+  period = 60

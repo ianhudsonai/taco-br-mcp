@@ -44,7 +44,10 @@
     "test": "vitest run",
     "inspect": "npm run build && npx @modelcontextprotocol/inspector node ./dist/server.js",
     "prepublishOnly": "npm run lint && npm run typecheck && npm run build && npm test",
-    "build:data": "tsx scripts/build-data.ts"
+    "build:data": "tsx scripts/build-data.ts",
+    "start:http": "node dist/server.js --http",
+    "dev:worker": "wrangler dev",
+    "deploy:worker": "wrangler deploy"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.4.0",
@@ -61,6 +64,7 @@
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "wrangler": "^4.156.0"
   }
 }
