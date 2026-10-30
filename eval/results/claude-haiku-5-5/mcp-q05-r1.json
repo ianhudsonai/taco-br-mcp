@@ -1,0 +1,157 @@
+{
+  "question": 5,
+  "arm": "mcp",
+  "rep": 1,
+  "model": "claude-haiku-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 7814,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.005195010000000001,
+    "usage": {
+      "input_tokens": 7,
+      "cache_creation_input_tokens": 15806,
+      "cache_read_input_tokens": 163151,
+      "output_tokens": 519,
+      "output_tokens_details": {
+        "thinking_tokens": 118
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15806,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 115,
+          "cache_read_input_tokens": 45342,
+          "cache_creation_input_tokens": 452,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 452
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1308,
+        "outputTokens": 543,
+        "cacheReadInputTokens": 163151,
+        "cacheCreationInputTokens": 15806,
+        "webSearchRequests": 0,
+        "costUSD": 0.005195010000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 118,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15806,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Segundo a TACO (4ª edição), o feijão carioca cozido (id 561) tem **8,5 g de fibra alimentar por 100 g** de parte comestível. Como o valor já está na base de 100 g, não precisei fazer conversão.\n\nRESPOSTA_FINAL: 8,5 g de fibra alimentar",
+    "ttft_ms": 1887,
+    "type": "result",
+    "duration_ms": 9208,
+    "uuid": "d28fc5c6-0e00-49fa-a2d0-ed50ad947359",
+    "ttft_stream_ms": 1491,
+    "time_to_request_ms": 421,
+    "time_to_request_phases_ms": {
+      "other": 31,
+      "system_prompt": 279,
+      "resume_other": 0,
+      "process_user_input": 5,
+      "input_attachments": 36,
+      "input_hooks": 4,
+      "tool_pool_refresh": 4,
+      "init_message": 8,
+      "engine_pickup": 1,
+      "message_prep": 3,
+      "model_config_wait": 1,
+      "autocompact": 3,
+      "query_setup": 0,
+      "model_gates": 1,
+      "tool_schema_build": 27,
+      "message_normalization": 3,
+      "client_creation": 3,
+      "request_build": 12
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 109,
+    "time_to_request_cpu_ms": 214,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 223,
+    "process_anon_mib_turn_start": 148,
+    "process_rss_mib_result": 215,
+    "process_anon_mib_result": 131,
+    "process_peak_rss_mib": 223,
+    "process_cpu_ms_turn": 776,
+    "process_wall_ms_turn": 9207,
+    "process_cpu_ms_streaming": 116,
+    "process_wall_ms_streaming": 1768,
+    "main_stream_count": 4,
+    "main_stream_event_count": 71,
+    "main_stream_chunk_count": 38,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 28,
+      "cpu_ms": 39,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1491,
+    "time_to_request_from_spawn_ms": 89954,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793347790440.6323,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

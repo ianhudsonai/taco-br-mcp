@@ -1,11 +1,14 @@
-// Scores eval/results/*.json against eval/questions.json and prints a Markdown table.
-// Usage: node eval/score.mjs [--detail]
-import { readdirSync, readFileSync } from 'node:fs';
+// Scores eval/results/<model>/*.json against eval/questions.json and prints a Markdown table.
+// Usage: node eval/score.mjs [--detail] [--model <id> | --all]   (default model: claude-sonnet-5-5)
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const { questions } = JSON.parse(readFileSync(join(root, 'eval', 'questions.json'), 'utf8'));
-const dir = join(root, 'eval', 'results');
+const resultsRoot = join(root, 'eval', 'results');
+const argv = process.argv.slice(2);
+const modelArg =
+  argv.indexOf('--model') >= 0 ? argv[argv.indexOf('--model') + 1] : 'claude-sonnet-5-5';
 const TOL = 0.05;
 
 const finalLine = (text) => {
@@ -47,48 +50,57 @@ function score(q, text) {
   return { ok: true, why: '', line };
 }
 
-const rows = readdirSync(dir)
-  .filter((f) => f.endsWith('.json'))
-  .map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')));
-const qById = new Map(questions.map((q) => [q.id, q]));
+function report(model) {
+  console.log(`\n## ${model}\n`);
+  const dir = join(resultsRoot, model);
+  const rows = readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')));
+  const qById = new Map(questions.map((q) => [q.id, q]));
 
-const stats = {}; // arm -> category -> {ok,n,src}
-const failures = [];
-for (const r of rows) {
-  const q = qById.get(r.question);
-  const text = r.result?.result ?? '';
-  const s =
-    r.result && !r.result.is_error
-      ? score(q, text)
-      : { ok: false, why: `execução falhou (exit ${r.code})` };
-  const cites = /TACO/.test(text) && /(NEPA|UNICAMP)/.test(text);
-  for (const key of [q.category, 'TOTAL']) {
-    const c = ((stats[r.arm] ??= {})[key] ??= { ok: 0, n: 0, src: 0, cost: 0, abst: 0 });
-    c.abst += s.abstained ? 1 : 0;
-    c.n++;
-    c.ok += s.ok ? 1 : 0;
-    c.src += cites ? 1 : 0;
-    c.cost += r.result?.total_cost_usd ?? 0;
+  const stats = {}; // arm -> category -> {ok,n,src}
+  const failures = [];
+  for (const r of rows) {
+    const q = qById.get(r.question);
+    const text = r.result?.result ?? '';
+    const s =
+      r.result && !r.result.is_error
+        ? score(q, text)
+        : { ok: false, why: `execução falhou (exit ${r.code})` };
+    const cites = /TACO/.test(text) && /(NEPA|UNICAMP)/.test(text);
+    for (const key of [q.category, 'TOTAL']) {
+      const c = ((stats[r.arm] ??= {})[key] ??= { ok: 0, n: 0, src: 0, cost: 0, abst: 0 });
+      c.abst += s.abstained ? 1 : 0;
+      c.n++;
+      c.ok += s.ok ? 1 : 0;
+      c.src += cites ? 1 : 0;
+      c.cost += r.result?.total_cost_usd ?? 0;
+    }
+    if (!s.ok) failures.push({ arm: r.arm, q: q.id, rep: r.rep, why: s.why });
   }
-  if (!s.ok) failures.push({ arm: r.arm, q: q.id, rep: r.rep, why: s.why });
+
+  const cats = [...new Set(questions.map((q) => q.category)), 'TOTAL'];
+  const cell = (arm, cat) => {
+    const c = stats[arm]?.[cat];
+    return c ? `${c.ok}/${c.n}` : '-';
+  };
+  console.log('| Categoria | Sem MCP | Com MCP |\n| --- | --- | --- |');
+  for (const cat of cats) console.log(`| ${cat} | ${cell('nomcp', cat)} | ${cell('mcp', cat)} |`);
+  for (const arm of ['nomcp', 'mcp']) {
+    const t = stats[arm]?.TOTAL;
+    if (t)
+      console.log(
+        `\n${arm}: cita a fonte em ${t.src}/${t.n}; disse "sem dado" onde a TACO tem o valor: ${t.abst}; custo US$ ${t.cost.toFixed(2)}`
+      );
+  }
+  if (argv.includes('--detail')) {
+    console.log('\nErros:');
+    for (const f of failures.sort((a, b) => a.arm.localeCompare(b.arm) || a.q - b.q))
+      console.log(`- ${f.arm} Q${f.q} r${f.rep}: ${f.why}`);
+  }
 }
 
-const cats = [...new Set(questions.map((q) => q.category)), 'TOTAL'];
-const cell = (arm, cat) => {
-  const c = stats[arm]?.[cat];
-  return c ? `${c.ok}/${c.n}` : '-';
-};
-console.log('| Categoria | Sem MCP | Com MCP |\n| --- | --- | --- |');
-for (const cat of cats) console.log(`| ${cat} | ${cell('nomcp', cat)} | ${cell('mcp', cat)} |`);
-for (const arm of ['nomcp', 'mcp']) {
-  const t = stats[arm]?.TOTAL;
-  if (t)
-    console.log(
-      `\n${arm}: cita a fonte em ${t.src}/${t.n}; disse "sem dado" onde a TACO tem o valor: ${t.abst}; custo US$ ${t.cost.toFixed(2)}`
-    );
-}
-if (process.argv.includes('--detail')) {
-  console.log('\nErros:');
-  for (const f of failures.sort((a, b) => a.arm.localeCompare(b.arm) || a.q - b.q))
-    console.log(`- ${f.arm} Q${f.q} r${f.rep}: ${f.why}`);
-}
+const models = argv.includes('--all')
+  ? readdirSync(resultsRoot).filter((d) => existsSync(join(resultsRoot, d, 'mcp-q01-r1.json')))
+  : [modelArg];
+for (const m of models) report(m);

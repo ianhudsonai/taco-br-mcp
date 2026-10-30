@@ -1,0 +1,157 @@
+{
+  "question": 13,
+  "arm": "nomcp",
+  "rep": 1,
+  "model": "claude-haiku-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 6956,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.0011281800000000001,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1516,
+      "cache_read_input_tokens": 4018,
+      "output_tokens": 1270,
+      "output_tokens_details": {
+        "thinking_tokens": 866
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1516,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1270,
+          "cache_read_input_tokens": 4018,
+          "cache_creation_input_tokens": 1516,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1516
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1373,
+        "outputTokens": 1295,
+        "cacheReadInputTokens": 4018,
+        "cacheCreationInputTokens": 1516,
+        "webSearchRequests": 0,
+        "costUSD": 0.0011281800000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 866,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1516,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Sem ferramentas, não consegui conferir os valores na TACO 4ª edição (NEPA/UNICAMP, 2011). Os valores abaixo são de memória, então vale checar na tabela antes de usar em algo importante.\n\n| Alimento | Quantidade | kcal |\n|---|---|---|\n| Arroz branco, tipo 1, cozido | 4 colheres de sopa ≈ 100 g* | 128 kcal |\n| Feijão carioca, cozido | 100 g | 76 kcal |\n| Frango, peito, sem pele, grelhado | 100 g | 159 kcal |\n| **Total** | | **≈ 363 kcal** |\n\n\\*A conversão de \"4 colheres de sopa\" para gramas é uma estimativa. Usei cerca de 25 g por colher de sopa cheia de arroz cozido, valor da Tabela de Medidas Referidas do IBGE (POF 2008-2009). A TACO em si não traz essa conversão. Se a colher estiver rasa ou cheia, o resultado muda: cada 25 g de arroz equivale a cerca de 32 kcal.\n\nRESPOSTA_FINAL: 363 kcal",
+    "ttft_ms": 4884,
+    "type": "result",
+    "duration_ms": 10032,
+    "uuid": "14e70328-9fd8-415d-8215-f1223351a71a",
+    "ttft_stream_ms": 1328,
+    "time_to_request_ms": 389,
+    "time_to_request_phases_ms": {
+      "other": 25,
+      "system_prompt": 304,
+      "resume_other": 0,
+      "process_user_input": 5,
+      "input_attachments": 11,
+      "input_hooks": 3,
+      "tool_pool_refresh": 2,
+      "init_message": 8,
+      "engine_pickup": 2,
+      "message_prep": 2,
+      "model_config_wait": 1,
+      "autocompact": 2,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 1,
+      "message_normalization": 2,
+      "client_creation": 11,
+      "request_build": 9
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 36,
+    "time_to_request_cpu_ms": 179,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 218,
+    "process_anon_mib_turn_start": 144,
+    "process_rss_mib_result": 198,
+    "process_anon_mib_result": 119,
+    "process_peak_rss_mib": 219,
+    "process_cpu_ms_turn": 573,
+    "process_wall_ms_turn": 10031,
+    "process_cpu_ms_streaming": 156,
+    "process_wall_ms_streaming": 5214,
+    "main_stream_count": 1,
+    "main_stream_event_count": 92,
+    "main_stream_chunk_count": 86,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 6,
+      "cpu_ms": 10,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1329,
+    "time_to_request_from_spawn_ms": 123081,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793347823681.245,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

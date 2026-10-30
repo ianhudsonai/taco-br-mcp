@@ -1,0 +1,173 @@
+{
+  "question": 13,
+  "arm": "mcp",
+  "rep": 3,
+  "model": "claude-opus-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 16113,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.072928,
+    "usage": {
+      "input_tokens": 7,
+      "cache_creation_input_tokens": 2342,
+      "cache_read_input_tokens": 178583,
+      "output_tokens": 915,
+      "output_tokens_details": {
+        "thinking_tokens": 22
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 2342,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 392,
+          "cache_read_input_tokens": 46108,
+          "cache_creation_input_tokens": 711,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 711
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1349,
+        "outputTokens": 25,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0001474,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5-5": {
+        "inputTokens": 7,
+        "outputTokens": 915,
+        "cacheReadInputTokens": 178583,
+        "cacheCreationInputTokens": 2342,
+        "webSearchRequests": 0,
+        "costUSD": 0.0727806,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 22,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 2342,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "A refeição tem cerca de **363 kcal**.\n\n| Alimento | Quantidade | kcal |\n|---|---|---|\n| Arroz, tipo 1, cozido | 4 colheres de sopa, cerca de 100 g | 128 |\n| Feijão, carioca, cozido | 100 g | 76 |\n| Frango, peito, sem pele, grelhado | 100 g | 159 |\n| **Total** | **cerca de 300 g** | **363** |\n\nAs 4 colheres de sopa de arroz viraram gramas pelo peso médio da POF 2008-2009 (IBGE). Nessa tabela, uma colher de sopa *cheia* de arroz cozido pesa 25 g. Esse valor é uma média, não a pesagem do seu prato, então as calorias do arroz são aproximadas. Se as colheres forem rasas, o arroz terá menos calorias.\n\nFonte: TACO 4ª ed. (NEPA/UNICAMP, 2011), valores por 100 g de parte comestível.\n\nRESPOSTA_FINAL: 363 kcal",
+    "ttft_ms": 2856,
+    "type": "result",
+    "duration_ms": 18497,
+    "uuid": "aa4b5572-3368-4991-8dd4-f7f2eec8c853",
+    "ttft_stream_ms": 2256,
+    "time_to_request_ms": 414,
+    "time_to_request_phases_ms": {
+      "other": 30,
+      "system_prompt": 277,
+      "resume_other": 0,
+      "process_user_input": 3,
+      "input_attachments": 28,
+      "input_hooks": 3,
+      "tool_pool_refresh": 5,
+      "init_message": 10,
+      "engine_pickup": 1,
+      "message_prep": 3,
+      "model_config_wait": 1,
+      "autocompact": 3,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 32,
+      "message_normalization": 3,
+      "client_creation": 3,
+      "request_build": 11
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 101,
+    "time_to_request_cpu_ms": 226,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 224,
+    "process_anon_mib_turn_start": 149,
+    "process_rss_mib_result": 215,
+    "process_anon_mib_result": 131,
+    "process_peak_rss_mib": 226,
+    "process_cpu_ms_turn": 1176,
+    "process_wall_ms_turn": 18496,
+    "process_cpu_ms_streaming": 261,
+    "process_wall_ms_streaming": 5994,
+    "main_stream_count": 4,
+    "main_stream_event_count": 122,
+    "main_stream_chunk_count": 38,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 18,
+      "cpu_ms": 32,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 2256,
+    "time_to_request_from_spawn_ms": 567618,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793348268100.9792,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

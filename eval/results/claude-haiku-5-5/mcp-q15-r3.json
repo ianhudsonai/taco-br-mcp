@@ -1,0 +1,157 @@
+{
+  "question": 15,
+  "arm": "mcp",
+  "rep": 3,
+  "model": "claude-haiku-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 8665,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.00279688,
+    "usage": {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 2070,
+      "cache_read_input_tokens": 175898,
+      "output_tokens": 702,
+      "output_tokens_details": {
+        "thinking_tokens": 187
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 2070,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 289,
+          "cache_read_input_tokens": 44763,
+          "cache_creation_input_tokens": 636,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 636
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1304,
+        "outputTokens": 987,
+        "cacheReadInputTokens": 175898,
+        "cacheCreationInputTokens": 2070,
+        "webSearchRequests": 0,
+        "costUSD": 0.00279688,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 454,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 2070,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Na TACO 4ª edição, o leite de vaca integral (id 458, \"Leite, de vaca, integral\") não tem valor de energia. Os nutrientes desse alimento, incluindo energia em kcal e kJ, estão marcados como \"não analisado\" (`null`), não como zero. A tabela não traz um número para 100 g.\n\nA entrada \"Leite, de vaca, integral, pó\" (id 459) tem 497 kcal por 100 g, mas é leite em pó, um produto diferente, e não serve para o leite integral líquido.\n\nRESPOSTA_FINAL: sem dado",
+    "ttft_ms": 1856,
+    "type": "result",
+    "duration_ms": 10119,
+    "uuid": "3bc18758-ac51-4c1c-89f4-947ee213d615",
+    "ttft_stream_ms": 1458,
+    "time_to_request_ms": 418,
+    "time_to_request_phases_ms": {
+      "other": 32,
+      "system_prompt": 267,
+      "resume_other": 0,
+      "process_user_input": 3,
+      "input_attachments": 29,
+      "input_hooks": 5,
+      "tool_pool_refresh": 5,
+      "init_message": 10,
+      "engine_pickup": 2,
+      "message_prep": 3,
+      "model_config_wait": 1,
+      "autocompact": 3,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 35,
+      "message_normalization": 3,
+      "client_creation": 7,
+      "request_build": 12
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 116,
+    "time_to_request_cpu_ms": 241,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 222,
+    "process_anon_mib_turn_start": 147,
+    "process_rss_mib_result": 214,
+    "process_anon_mib_result": 131,
+    "process_peak_rss_mib": 222,
+    "process_cpu_ms_turn": 896,
+    "process_wall_ms_turn": 10119,
+    "process_cpu_ms_streaming": 178,
+    "process_wall_ms_streaming": 2762,
+    "main_stream_count": 4,
+    "main_stream_event_count": 97,
+    "main_stream_chunk_count": 59,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 19,
+      "cpu_ms": 34,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1458,
+    "time_to_request_from_spawn_ms": 301044,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793348001336.9077,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

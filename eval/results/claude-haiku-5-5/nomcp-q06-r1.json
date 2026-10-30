@@ -1,0 +1,157 @@
+{
+  "question": 6,
+  "arm": "nomcp",
+  "rep": 1,
+  "model": "claude-haiku-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 4906,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.00078498,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 1462,
+      "cache_read_input_tokens": 4018,
+      "output_tokens": 620,
+      "output_tokens_details": {
+        "thinking_tokens": 448
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 1462,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 620,
+          "cache_read_input_tokens": 4018,
+          "cache_creation_input_tokens": 1462,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1462
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1319,
+        "outputTokens": 641,
+        "cacheReadInputTokens": 4018,
+        "cacheCreationInputTokens": 1462,
+        "webSearchRequests": 0,
+        "costUSD": 0.00078498,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 448,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 1462,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "A TACO 4ª edição registra cerca de **3,3 mg de ferro por 100 g de lentilha cozida**. Não consegui consultar a tabela neste ambiente, então esse valor vem da minha memória e deve ser conferido na publicação original (NEPA/UNICAMP, 2011) antes de uso em trabalhos formais.\n\nRESPOSTA_FINAL: 3,3 mg de ferro por 100 g (valor de memória, a conferir na TACO 4ª ed.)",
+    "ttft_ms": 3367,
+    "type": "result",
+    "duration_ms": 7273,
+    "uuid": "866f0993-bc00-4d8d-8027-bc67130b0f4d",
+    "ttft_stream_ms": 1293,
+    "time_to_request_ms": 319,
+    "time_to_request_phases_ms": {
+      "other": 23,
+      "system_prompt": 245,
+      "resume_other": 0,
+      "process_user_input": 4,
+      "input_attachments": 6,
+      "input_hooks": 3,
+      "tool_pool_refresh": 2,
+      "init_message": 7,
+      "engine_pickup": 2,
+      "message_prep": 2,
+      "model_config_wait": 0,
+      "autocompact": 2,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 1,
+      "message_normalization": 1,
+      "client_creation": 13,
+      "request_build": 7
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 62,
+    "time_to_request_cpu_ms": 135,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 221,
+    "process_anon_mib_turn_start": 147,
+    "process_rss_mib_result": 200,
+    "process_anon_mib_result": 121,
+    "process_peak_rss_mib": 222,
+    "process_cpu_ms_turn": 450,
+    "process_wall_ms_turn": 7272,
+    "process_cpu_ms_streaming": 68,
+    "process_wall_ms_streaming": 2814,
+    "main_stream_count": 1,
+    "main_stream_event_count": 47,
+    "main_stream_chunk_count": 40,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 4,
+      "cpu_ms": 7,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1293,
+    "time_to_request_from_spawn_ms": 91443,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793347792109.0186,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

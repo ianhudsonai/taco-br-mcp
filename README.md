@@ -63,19 +63,20 @@ All tools are read-only. Every response cites _TACO 4ª ed. (NEPA/UNICAMP, 2011)
 
 ## Mini-evaluation
 
-15 questions about the TACO, answered by `claude -p` (`claude-sonnet-5-5`) with and without the server, 3 repetitions each (90 runs, 30 October 2026). A numeric answer is correct when it is within 5% of the table value; for the two "honesty" questions it is correct only if it says the TACO does not publish the value (whole milk energy) or that the total is a minimum (fiber of a meal that includes chicken, which has no fiber value).
+15 questions about the TACO, answered by `claude -p` with and without the server, 3 repetitions each (90 runs per model, 30 October 2026), on three models. A numeric answer is correct when it is within 5% of the table value; for the two "honesty" questions it is correct only if it says the TACO does not publish the value (whole milk energy) or that the total is a minimum (fiber of a meal that includes chicken, which has no fiber value).
 
-| Category        | Without MCP | With MCP  |
-| --------------- | ----------- | --------- |
-| Direct lookup   | 16/18       | 18/18     |
-| Scaled grams    | 9/9         | 9/9       |
-| Comparison      | 3/3         | 3/3       |
-| Household units | 1/6         | 6/6       |
-| Whole meal      | 0/3         | 3/3       |
-| Honesty         | 3/6         | 6/6       |
-| **Total**       | **32/45**   | **45/45** |
+| Category        | Haiku 5.5 without / with | Sonnet 5.5 without / with | Opus 5.5 without / with |
+| --------------- | ------------------------ | ------------------------- | ----------------------- |
+| Direct lookup   | 12/18 / 18/18            | 16/18 / 18/18             | 18/18 / 18/18           |
+| Scaled grams    | 9/9 / 9/9                | 9/9 / 9/9                 | 9/9 / 9/9               |
+| Comparison      | 3/3 / 3/3                | 3/3 / 3/3                 | 3/3 / 3/3               |
+| Household units | 3/6 / 6/6                | 1/6 / 6/6                 | 3/6 / 6/6               |
+| Whole meal      | 3/3 / 3/3                | 0/3 / 3/3                 | 3/3 / 3/3               |
+| Honesty         | 1/6 / 6/6                | 3/6 / 6/6                 | 3/6 / 6/6               |
+| **Total**       | **31/45 / 45/45**        | **32/45 / 45/45**         | **39/45 / 45/45**       |
+| Cost of 90 runs | US$ 0.22                 | US$ 3.10                  | US$ 5.78                |
 
-Reading: the model already remembers many single TACO values, so direct lookups and gram scaling barely move. The gain is in household measures and meals, where without the server it answered "no data" 9 times or guessed unit weights, and in not repeating common knowledge: the TACO does not publish the energy of whole milk, and without the server the model answered 61 kcal in all 3 runs. Limits: one model, 15 questions, 3 repetitions, rule-based scoring (the 5% tolerance accepted one no-MCP answer with a wrong rice value that landed near the right sum). Questions, answer key and raw answers are in [`eval/`](eval); to repeat: `npm run build && node eval/run.mjs && node eval/score.mjs --detail`.
+Reading: with the server all three models got 45/45. Without it they score 31 to 39 out of 45, and the failures differ by model. Haiku gives remembered values that are wrong for single foods (vitamin C in banana prata, iron in cooked lentils), labels them as unverified, and does not flag the fiber total of the meal as a minimum. Sonnet mostly answers "no data" on household measures and meals. Opus remembers most single values and still guesses unit weights (2 boiled eggs). All three, in all 3 runs, answer 61 kcal for whole milk, a value the TACO does not publish. One side effect: Haiku with the server repeated the TACO citation in only 13 of 45 answers (the tool output always carries it); Sonnet and Opus did it in 45 of 45. Limits: 15 questions, 3 repetitions, rule-based scoring (the 5% tolerance accepted one no-MCP Sonnet answer with a wrong rice value that landed near the right sum). Questions, answer key and raw answers are in [`eval/`](eval) (one folder per model); to repeat: `npm run build && node eval/run.mjs --model claude-haiku-5-5 && node eval/score.mjs --all --detail`.
 
 ## Development
 

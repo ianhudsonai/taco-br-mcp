@@ -17,7 +17,7 @@ const ONLY = opt('only', undefined);
 const LIMIT = Number(opt('limit', 0));
 
 const root = resolve(import.meta.dirname, '..');
-const out = join(root, 'eval', 'results');
+const out = join(root, 'eval', 'results', MODEL); // one folder per model so runs never hit another model's cache
 mkdirSync(out, { recursive: true });
 const { suffix, questions } = JSON.parse(
   readFileSync(join(root, 'eval', 'questions.json'), 'utf8')
