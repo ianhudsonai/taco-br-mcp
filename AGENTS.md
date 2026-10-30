@@ -52,8 +52,8 @@ This file only routes. Facts live in the files linked below.
 
 ## Release
 
-Tag `v*` triggers `.github/workflows/release.yml` (npm publish with
-`--provenance`, needs `NPM_TOKEN`). Registry name: `io.github.ianhudsonai/taco-br`.
+Tag `v*` triggers `.github/workflows/release.yml` (npm trusted publishing via OIDC,
+with `--provenance`; `NPM_TOKEN` is only a fallback until the first OIDC release succeeds). Registry name: `io.github.ianhudsonai/taco-br`.
 Do not publish by hand.
 
 ## Scope
