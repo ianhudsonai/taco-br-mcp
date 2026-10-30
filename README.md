@@ -78,4 +78,4 @@ Never write to stdout (`console.log`): it is the protocol channel. Use `console.
 
 ## Data & license
 
-Code: MIT. Nutritional data belongs to NEPA/UNICAMP (TACO) and IBGE (POF); see [NOTICE.md](NOTICE.md) for sources, processing and pinned versions. If you use this in research, see [CITATION.cff](CITATION.cff). Not medical or nutritional advice.
+Code: MIT. Nutritional data: TACO 4ª ed., NEPA/UNICAMP (2011). Household-measure weights: **Fonte: IBGE, POF 2008-2009**, _Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil_ — the grams are IBGE's, unchanged; the mapping between TACO and POF foods was curated by this project, which is responsible for it. See [NOTICE.md](NOTICE.md) for sources, processing and pinned versions. If you use this in research, see [CITATION.cff](CITATION.cff). Not medical or nutritional advice.

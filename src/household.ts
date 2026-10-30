@@ -3,7 +3,7 @@ import { getHousehold, type HouseholdEntry, type HouseholdMeasure } from './data
 import { stem, tokenize } from './search.js';
 
 export const HOUSEHOLD_SOURCE =
-  'POF 2008-2009 (IBGE), Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil';
+  'POF 2008-2009 (IBGE), Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil; associação com os alimentos da TACO feita por taco-br-mcp';
 
 /** Other ways people write a measure, per measure key. Forms are compared token by token after stemming. */
 const ALIASES: Record<string, string[]> = {
