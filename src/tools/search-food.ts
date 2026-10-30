@@ -17,7 +17,13 @@ const outputSchema = z.object({
         matched_via_synonym: z
           .string()
           .optional()
-          .describe('Set when the food was found through this synonym of the query.')
+          .describe('Set when the food was found through this synonym of the query.'),
+        matched_via_typo: z
+          .string()
+          .optional()
+          .describe(
+            'Set when nothing matched the query as typed: the corrected wording this food was found with. Check it is what the user meant.'
+          )
       })
     )
     .describe('Best matches first.'),
@@ -30,7 +36,7 @@ export function registerSearchFood(server: McpServer): void {
     {
       title: 'Search foods in TACO',
       description:
-        'Find foods in the Brazilian TACO table (597 items, per 100 g) by name in Portuguese. Accent-insensitive; knows a few synonyms (aipim, macaxeira, pão de sal). Returns ids to use with get_nutrients. Restaurant dishes and brands are mostly absent.',
+        'Find foods in the Brazilian TACO table (597 items, per 100 g) by name in Portuguese. Accent-insensitive; tolerates typos; knows regional names (aipim, macaxeira, pão de sal, mandioquinha). Returns ids to use with get_nutrients. Restaurant dishes and brands are mostly absent.',
       inputSchema: z.object({
         query: z
           .string()
@@ -51,12 +57,13 @@ export function registerSearchFood(server: McpServer): void {
     },
     async ({ query, limit }) => {
       const hits = searchFoods(query);
-      const results = hits.slice(0, limit).map(({ food, via }) => ({
+      const results = hits.slice(0, limit).map(({ food, via, corrected }) => ({
         id: food.id,
         name: food.name,
         category: food.category,
         energy_kcal: food.nutrients.energy_kcal ?? null,
-        ...(via ? { matched_via_synonym: via } : {})
+        ...(via ? { matched_via_synonym: via } : {}),
+        ...(corrected ? { matched_via_typo: corrected } : {})
       }));
       const output = { query, total_matches: hits.length, results, source: SOURCE };
 
@@ -71,7 +78,7 @@ export function registerSearchFood(server: McpServer): void {
                 (r) =>
                   `- [${r.id}] ${r.name} (${r.category}): ${formatValue(r.energy_kcal, 'kcal')}${
                     r.matched_via_synonym ? ` (sinônimo: ${r.matched_via_synonym})` : ''
-                  }`
+                  }${r.matched_via_typo ? ` (corrigido para: "${r.matched_via_typo}")` : ''}`
               )
             ];
       lines.push(`Fonte: ${SOURCE}`);

@@ -79,6 +79,13 @@ describe('search_food', () => {
     expect(out.results[0]).toMatchObject({ id: 129, matched_via_synonym: 'macaxeira' });
   });
 
+  it('flags results found after correcting a typo', async () => {
+    const r = await call('search_food', { query: 'feijao pretto cozido' });
+    const out = r.structuredContent as { results: { id: number; matched_via_typo?: string }[] };
+    expect(out.results[0]).toMatchObject({ id: 567, matched_via_typo: 'feijao preto cozido' });
+    expect(text(r)).toContain('corrigido para');
+  });
+
   it('says plainly when nothing matches instead of guessing', async () => {
     const r = await call('search_food', { query: 'marmita' });
     expect(r.structuredContent).toMatchObject({ total_matches: 0, results: [], source: SOURCE });
