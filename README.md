@@ -36,7 +36,7 @@ ChatGPT cannot reach a server running on your PC, so the same tools are availabl
 npx -y taco-br-mcp --http   # http://127.0.0.1:3000/mcp
 ```
 
-The repository also ships a Cloudflare Workers deployment (free plan, open access, per-IP rate limit). Step-by-step deploy and the ChatGPT connector setup (Settings → Apps & Connectors, developer mode, authentication "No authentication") are in [docs/remote.md](docs/remote.md).
+A public instance runs at `https://taco-br-mcp.taco-br-mcp.workers.dev/mcp` (open, no login, rate limited; best effort, no uptime promise). The repository also ships a Cloudflare Workers deployment (free plan, open access, per-IP rate limit). Step-by-step deploy and the ChatGPT connector setup (Settings → Apps & Connectors, developer mode, authentication "No authentication") are in [docs/remote.md](docs/remote.md).
 
 ## Tools
 

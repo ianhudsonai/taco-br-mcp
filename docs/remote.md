@@ -30,7 +30,7 @@ Custom MCP connectors are in ChatGPT's developer mode and depend on your plan an
 1. Settings → Apps & Connectors (or Connectors) → Advanced settings → turn on **Developer mode**.
 2. Back in Apps & Connectors, **Create** a new connector:
    - Name: `TACO Brasil`
-   - MCP server URL: `https://taco-br-mcp.<your-subdomain>.workers.dev/mcp`
+   - MCP server URL: `https://taco-br-mcp.<your-subdomain>.workers.dev/mcp` (the public instance is `https://taco-br-mcp.taco-br-mcp.workers.dev/mcp`)
    - Authentication: **No authentication**
 3. In a new chat, enable the connector for that chat (the **+** menu → More / Developer mode) and ask, for example: _"Quantas kcal tem 4 colheres de sopa de arroz e 100 g de feijão carioca? Use a TACO."_
 
