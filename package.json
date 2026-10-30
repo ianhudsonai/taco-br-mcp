@@ -1,6 +1,6 @@
 {
   "name": "taco-br-mcp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "MCP server for the TACO (Tabela Brasileira de Composição de Alimentos, NEPA/UNICAMP) Brazilian food composition table",
   "repository": {
     "type": "git",
