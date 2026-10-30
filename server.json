@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ianhudsonai/taco-br",
+  "title": "TACO Brasil",
+  "description": "Tabela Brasileira de Composição de Alimentos (TACO): 597 foods, nutrients and household measures",
+  "repository": {
+    "url": "https://github.com/ianhudsonai/taco-br-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "taco-br-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}
