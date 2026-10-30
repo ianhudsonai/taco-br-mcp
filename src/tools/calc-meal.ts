@@ -1,8 +1,9 @@
 import type { McpServer } from '@modelcontextprotocol/server';
 import * as z from 'zod/v4';
 import { SOURCE } from '../constants.js';
-import { getFood, NUTRIENT_KEYS } from '../data/foods.js';
+import { getFood, NUTRIENT_KEYS, type Food } from '../data/foods.js';
 import { formatValue, isTrace, nutrientValueSchema, roundAmount, scaleValue } from '../format.js';
+import { HOUSEHOLD_SOURCE, resolveHousehold, type ResolvedHousehold } from '../household.js';
 import { selectNutrients } from '../nutrient-select.js';
 
 const outputSchema = z.object({
@@ -12,6 +13,17 @@ const outputSchema = z.object({
         food_id: z.number().int().describe('TACO food number.'),
         name: z.string().describe('Food name exactly as in the TACO table.'),
         grams: z.number().describe('Quantity of this item, in grams of edible portion.'),
+        household: z
+          .object({
+            measure: z.string().describe('Household measure used, in Portuguese.'),
+            quantity: z.number().describe('How many of the measure.'),
+            grams_per_measure: z.number().describe('Weight of one measure in grams.'),
+            source_description: z
+              .string()
+              .describe('Description of the POF row the weight comes from.')
+          })
+          .optional()
+          .describe('Set when the item was given as a household measure and converted to grams.'),
         amounts: z
           .record(z.string(), nutrientValueSchema)
           .describe('Amount of each requested nutrient in this item, keyed by nutrient key.')
@@ -50,8 +62,18 @@ const outputSchema = z.object({
       'True when every requested nutrient has data for every item (no total is a lower bound).'
     ),
   notes: z.array(z.string()).describe('Caveats about this answer.'),
-  source: z.string().describe('Citation for the data.')
+  source: z.string().describe('Citation for the data.'),
+  household_source: z
+    .string()
+    .optional()
+    .describe('Citation for the household measure weights; set when any item used one.')
 });
+
+interface ResolvedItem {
+  food: Food;
+  grams: number;
+  household: ResolvedHousehold | undefined;
+}
 
 export function registerCalcMeal(server: McpServer): void {
   server.registerTool(
@@ -59,7 +81,7 @@ export function registerCalcMeal(server: McpServer): void {
     {
       title: 'Calculate the nutrients of a meal',
       description:
-        'Sum nutrients over a list of TACO foods with quantities in grams (get ids from search_food). Totals are lower bounds when an item has no data for a nutrient: the response says which. Defaults to energy, protein, fat, carbohydrate, fiber and sodium.',
+        'Sum nutrients over a list of TACO foods (ids from search_food). Each item has either grams or a household_measure with quantity (e.g. "colher de sopa" x 2, covered foods only; see convert_household_measure). Totals are lower bounds when an item has no data for a nutrient: the response says which. Defaults to energy, protein, fat, carbohydrate, fiber and sodium.',
       inputSchema: z.object({
         items: z
           .array(
@@ -73,8 +95,26 @@ export function registerCalcMeal(server: McpServer): void {
                 .number()
                 .positive()
                 .max(10000)
+                .optional()
                 .describe(
-                  'Quantity of this food in grams of edible portion, as eaten (cooked weight for cooked foods).'
+                  'Quantity of this food in grams of edible portion, as eaten (cooked weight for cooked foods). Give this or household_measure, not both.'
+                ),
+              household_measure: z
+                .string()
+                .trim()
+                .min(1)
+                .max(100)
+                .optional()
+                .describe(
+                  'Household measure instead of grams, e.g. "colher de sopa", "unidade", "fatia", "concha". Only for foods with curated measures.'
+                ),
+              quantity: z
+                .number()
+                .positive()
+                .max(1000)
+                .optional()
+                .describe(
+                  'How many of household_measure (default 1; may be fractional). Not used with grams.'
                 )
             })
           )
@@ -106,13 +146,61 @@ export function registerCalcMeal(server: McpServer): void {
         };
       }
 
-      const defs = selectNutrients(nutrients);
-      const resolved = items.map((i) => ({ food: getFood(i.food_id)!, grams: i.grams }));
+      const problems: string[] = [];
+      const resolved = items.flatMap<ResolvedItem>((item, index) => {
+        const food = getFood(item.food_id)!;
+        const where = `item ${index + 1} (${food.name} [${food.id}])`;
+        if (item.grams !== undefined && item.household_measure !== undefined) {
+          problems.push(`${where}: informe grams ou household_measure, não os dois.`);
+          return [];
+        }
+        if (item.grams === undefined && item.household_measure === undefined) {
+          problems.push(`${where}: falta grams ou household_measure.`);
+          return [];
+        }
+        if (item.grams !== undefined) {
+          if (item.quantity !== undefined) {
+            problems.push(`${where}: quantity só vale com household_measure.`);
+            return [];
+          }
+          return [{ food, grams: item.grams, household: undefined }];
+        }
+        const r = resolveHousehold(food.id, item.household_measure!, item.quantity);
+        if (!r.ok) {
+          problems.push(`${where}: ${r.message}`);
+          return [];
+        }
+        return [{ food, grams: r.grams, household: r }];
+      });
+      if (problems.length > 0) {
+        return {
+          isError: true,
+          content: [
+            {
+              type: 'text' as const,
+              text: `Nada foi calculado:\n${problems.map((p) => `- ${p}`).join('\n')}`
+            }
+          ]
+        };
+      }
 
-      const itemRows = resolved.map(({ food, grams }) => ({
+      const defs = selectNutrients(nutrients);
+      const usedHousehold = resolved.some((r) => r.household);
+
+      const itemRows = resolved.map(({ food, grams, household }) => ({
         food_id: food.id,
         name: food.name,
         grams,
+        ...(household
+          ? {
+              household: {
+                measure: household.measure.measure,
+                quantity: household.quantity,
+                grams_per_measure: household.measure.grams,
+                source_description: household.measure.source_description
+              }
+            }
+          : {}),
         amounts: Object.fromEntries(
           defs.map((d) => [d.key, scaleValue(food.nutrients[d.key] ?? null, grams, d)])
         )
@@ -158,8 +246,18 @@ export function registerCalcMeal(server: McpServer): void {
           'Nutrientes sem dado (NA) em algum item não entram na soma: onde is_lower_bound é verdadeiro, o total real é maior que o informado.'
         );
       }
+      if (usedHousehold) {
+        notes.push(
+          'Itens em medida caseira foram convertidos em gramas com pesos médios da POF/IBGE, não pesagens do prato: a precisão desses itens é menor.'
+        );
+      }
       const foodNotes = [...new Set(resolved.flatMap(({ food }) => food.notes ?? []))];
-      notes.push(...foodNotes);
+      const householdNotes = [
+        ...new Set(
+          resolved.flatMap(({ household }) => (household?.entry.note ? [household.entry.note] : []))
+        )
+      ];
+      notes.push(...foodNotes, ...householdNotes);
 
       const totalGrams = Number(resolved.reduce((s, r) => s + r.grams, 0).toFixed(3));
       const output = {
@@ -168,12 +266,18 @@ export function registerCalcMeal(server: McpServer): void {
         totals,
         complete,
         notes,
-        source: SOURCE
+        source: SOURCE,
+        ...(usedHousehold ? { household_source: HOUSEHOLD_SOURCE } : {})
       };
 
       const lines = [
         `Refeição de ${totalGrams} g (${resolved.length} item(ns)):`,
-        ...itemRows.map((r) => `- ${r.grams} g ${r.name} [${r.food_id}]`),
+        ...itemRows.map(
+          (r) =>
+            `- ${r.grams} g ${r.name} [${r.food_id}]${
+              r.household ? ` (${r.household.quantity} ${r.household.measure})` : ''
+            }`
+        ),
         'Totais:',
         ...totals.map((t) => {
           const value = formatValue(t.total, t.unit);
@@ -186,7 +290,7 @@ export function registerCalcMeal(server: McpServer): void {
           return `- ${t.label_pt}: ${value}${t.trace_in.length ? ` (+ traço em: ${t.trace_in.join('; ')})` : ''}`;
         }),
         ...notes.slice(1),
-        `Fonte: ${SOURCE}`
+        `Fonte: ${SOURCE}${usedHousehold ? `; medidas: ${HOUSEHOLD_SOURCE}` : ''}`
       ];
       return {
         content: [{ type: 'text' as const, text: lines.join('\n') }],

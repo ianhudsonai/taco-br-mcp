@@ -2,6 +2,23 @@
   "_comment": "Hand-curated TACO -> POF/IBGE mapping for household measures (starter set). TACO and POF share no key, so each entry names the POF food code + preparation code and the measures judged reliable (source description matches the measure). Add entries here, then run `npm run build:data`.",
   "entries": [
     {
+      "taco_id": 1,
+      "pof_code": "6300201",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE SOPA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE CHA",
+        "COLHER DE ARROZ/SERVIR",
+        "CONCHA",
+        "ESCUMADEIRA",
+        "PRATO FUNDO",
+        "PRATO RASO",
+        "PRATO DE SOBREMESA",
+        "PORCAO"
+      ]
+    },
+    {
       "taco_id": 3,
       "pof_code": "6300101",
       "pof_prep": "99",
@@ -19,20 +36,741 @@
       ]
     },
     {
-      "taco_id": 1,
-      "pof_code": "6300201",
+      "taco_id": 5,
+      "pof_code": "6300101",
       "pof_prep": "99",
+      "note": "POF 'ARROZ (POLIDO, PARBOILIZADO)'; same measures as TACO 3.",
       "measures": [
-        "COLHER DE SOPA",
-        "COLHER DE SOBREMESA",
+        "COLHER DE CAFE",
         "COLHER DE CHA",
-        "COLHER DE ARROZ/SERVIR",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
         "CONCHA",
         "ESCUMADEIRA",
+        "PORCAO",
+        "PRATO FUNDO"
+      ]
+    },
+    {
+      "taco_id": 7,
+      "pof_code": "6500401",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA"
+      ]
+    },
+    {
+      "taco_id": 52,
+      "pof_code": "8000501",
+      "pof_prep": "99",
+      "note": "POF slice of white sandwich bread (25 g) applied to whole-wheat sandwich bread.",
+      "measures": [
+        "FATIA"
+      ]
+    },
+    {
+      "taco_id": 53,
+      "pof_code": "8000105",
+      "pof_prep": "99",
+      "note": "POF 'PAO DE SAL' (source: pão francês).",
+      "measures": [
+        "UNIDADE",
+        "METADE",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 61,
+      "pof_code": "8501202",
+      "pof_prep": "99",
+      "note": "POF 'PIPOCA DOCE OU SALGADA'; weights are of popped corn.",
+      "measures": [
+        "PORCAO",
+        "PRATO DE SOBREMESA",
+        "PRATO FUNDO",
+        "PRATO RASO"
+      ]
+    },
+    {
+      "taco_id": 64,
+      "pof_code": "6703901",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "ESCUMADEIRA",
+        "PEDACO",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 70,
+      "pof_code": "6703701",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "ESCUMADEIRA",
+        "FATIA",
+        "PEDACO",
+        "UNIDADE"
+      ]
+    },
+    {
+      "taco_id": 78,
+      "pof_code": "6700101",
+      "pof_prep": "99",
+      "note": "Shares the POF generic 'ALFACE' entry.",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "FOLHA",
+        "METADE",
+        "PORCAO",
+        "PRATO DE SOBREMESA",
         "PRATO FUNDO",
         "PRATO RASO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 79,
+      "pof_code": "6700101",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "FOLHA",
+        "METADE",
+        "PORCAO",
         "PRATO DE SOBREMESA",
+        "PRATO FUNDO",
+        "PRATO RASO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 88,
+      "pof_code": "6400401",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE SOPA",
+        "FATIA",
+        "METADE",
+        "PORCAO",
+        "UNIDADE"
+      ]
+    },
+    {
+      "taco_id": 91,
+      "pof_code": "6400101",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "ESCUMADEIRA",
+        "METADE",
+        "PEDACO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 93,
+      "pof_code": "6400101",
+      "pof_prep": "5",
+      "measures": [
+        "COLHER DE SOPA",
+        "ESCUMADEIRA",
+        "PORCAO",
+        "PRATO DE SOBREMESA"
+      ]
+    },
+    {
+      "taco_id": 97,
+      "pof_code": "6401101",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "ESCUMADEIRA",
+        "FATIA",
+        "METADE",
+        "PORCAO",
+        "PRATO DE SOBREMESA",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 100,
+      "pof_code": "6701704",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
         "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 107,
+      "pof_code": "6705701",
+      "pof_prep": "1",
+      "measures": [
+        "BANDA",
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "FATIA",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 109,
+      "pof_code": "6401201",
+      "pof_prep": "2",
+      "measures": [
+        "FATIA",
+        "METADE",
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 110,
+      "pof_code": "6401201",
+      "pof_prep": "1",
+      "measures": [
+        "BANDA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 116,
+      "pof_code": "6700501",
+      "pof_prep": "7",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "FOLHA"
+      ]
+    },
+    {
+      "taco_id": 118,
+      "pof_code": "6700601",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE SOPA",
+        "PORCAO",
+        "PRATO DE SOBREMESA",
+        "RAMO"
+      ]
+    },
+    {
+      "taco_id": 122,
+      "pof_code": "6501401",
+      "pof_prep": "99",
+      "note": "POF generic farinha de mandioca.",
+      "measures": [
+        "COLHER DE CAFE",
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA"
+      ]
+    },
+    {
+      "taco_id": 129,
+      "pof_code": "6400601",
+      "pof_prep": "2",
+      "note": "POF 'MANDIOCA' (source: aipim cozido).",
+      "measures": [
+        "COLHER DE SOPA",
+        "COLHER DE ARROZ/SERVIR",
+        "PEDACO",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 132,
+      "pof_code": "6400601",
+      "pof_prep": "5",
+      "measures": [
+        "COLHER DE SOPA",
+        "PEDACO",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 140,
+      "pof_code": "8000801",
+      "pof_prep": "99",
+      "measures": [
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 142,
+      "pof_code": "6704001",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "FATIA",
+        "METADE",
+        "UNIDADE"
+      ]
+    },
+    {
+      "taco_id": 149,
+      "pof_code": "6700901",
+      "pof_prep": "1",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "ESCUMADEIRA",
+        "FOLHA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 157,
+      "pof_code": "6705101",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "FATIA",
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 164,
+      "pof_code": "6802601",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "FATIA",
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 182,
+      "pof_code": "6801101",
+      "pof_prep": "1",
+      "note": "POF generic banana entry; unit weights are those of banana prata.",
+      "measures": [
+        "UNIDADE",
+        "UNIDADE PEQUENA",
+        "METADE",
+        "FATIA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 200,
+      "pof_code": "6804201",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 214,
+      "pof_code": "6801801",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 220,
+      "pof_code": "6802001",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "PORCAO",
+        "UNIDADE"
+      ]
+    },
+    {
+      "taco_id": 222,
+      "pof_code": "6803001",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 226,
+      "pof_code": "6803101",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "FATIA",
+        "PEDACO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 231,
+      "pof_code": "6803201",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 235,
+      "pof_code": "6803401",
+      "pof_prep": "99",
+      "measures": [
+        "FATIA",
+        "PEDACO",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 236,
+      "pof_code": "6803501",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "FATIA",
+        "PORCAO",
+        "UNIDADE"
+      ]
+    },
+    {
+      "taco_id": 237,
+      "pof_code": "6802202",
+      "pof_prep": "99",
+      "note": "POF 'MEXERICA' (source: tangerina).",
+      "measures": [
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 239,
+      "pof_code": "6805201",
+      "pof_prep": "99",
+      "measures": [
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 243,
+      "pof_code": "6803601",
+      "pof_prep": "99",
+      "measures": [
+        "BANDA",
+        "UNIDADE"
+      ]
+    },
+    {
+      "taco_id": 251,
+      "pof_code": "6802201",
+      "pof_prep": "99",
+      "measures": [
+        "METADE",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 256,
+      "pof_code": "6803901",
+      "pof_prep": "99",
+      "measures": [
+        "CACHO",
+        "PORCAO",
+        "UNIDADE",
+        "UNIDADE PEQUENA"
+      ]
+    },
+    {
+      "taco_id": 260,
+      "pof_code": "8400101",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CAFE",
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 262,
+      "pof_code": "7901501",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 263,
+      "pof_code": "7901602",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 272,
+      "pof_code": "8400301",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CAFE",
+        "COLHER DE CHA",
+        "COLHER DE SOPA"
+      ]
+    },
+    {
+      "taco_id": 326,
+      "pof_code": "7104301",
+      "pof_prep": "2",
+      "measures": [
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 358,
+      "pof_code": "7100101",
+      "pof_prep": "3",
+      "measures": [
+        "BIFE"
+      ]
+    },
+    {
+      "taco_id": 377,
+      "pof_code": "7100501",
+      "pof_prep": "3",
+      "measures": [
+        "BIFE"
+      ]
+    },
+    {
+      "taco_id": 410,
+      "pof_code": "7800401",
+      "pof_prep": "3",
+      "note": "POF generic chicken breast (grilled preparation); the fillet weight is for a medium fillet, not specific to skinless.",
+      "measures": [
+        "FILE",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 439,
+      "pof_code": "8102901",
+      "pof_prep": "99",
+      "measures": [
+        "FATIA"
+      ]
+    },
+    {
+      "taco_id": 448,
+      "pof_code": "7901204",
+      "pof_prep": "99",
+      "measures": [
+        "COPO AMERICANO",
+        "COPO DE REQUEIJAO",
+        "COPO GRANDE",
+        "COPO MEDIO"
+      ]
+    },
+    {
+      "taco_id": 449,
+      "pof_code": "7901203",
+      "pof_prep": "99",
+      "measures": [
+        "COPO AMERICANO",
+        "COPO MEDIO"
+      ]
+    },
+    {
+      "taco_id": 457,
+      "pof_code": "7903601",
+      "pof_prep": "99",
+      "measures": [
+        "CANECA",
+        "COPO AMERICANO",
+        "COPO DE REQUEIJAO",
+        "COPO GRANDE",
+        "COPO MEDIO",
+        "COPO TULIPA",
+        "XICARA DE CAFE",
+        "XICARA DE CHA"
+      ]
+    },
+    {
+      "taco_id": 458,
+      "pof_code": "7900101",
+      "pof_prep": "99",
+      "measures": [
+        "COPO AMERICANO",
+        "COPO MEDIO",
+        "COPO GRANDE",
+        "COPO DE REQUEIJAO",
+        "XICARA DE CHA",
+        "XICARA DE CAFE",
+        "COPO DE CAFEZINHO",
+        "CANECA"
+      ]
+    },
+    {
+      "taco_id": 461,
+      "pof_code": "7902001",
+      "pof_prep": "99",
+      "measures": [
+        "FATIA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 463,
+      "pof_code": "7901801",
+      "pof_prep": "99",
+      "measures": [
+        "FATIA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 468,
+      "pof_code": "7902901",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CAFE",
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 471,
+      "pof_code": "8501302",
+      "pof_prep": "99",
+      "note": "POF 'CAFE' (beverage). Volumes in grams as referred; 10% infusion is close to 1 g/ml.",
+      "measures": [
+        "COPO AMERICANO",
+        "COPO DE CAFEZINHO",
+        "COPO DE REQUEIJAO",
+        "COPO GRANDE",
+        "COPO MEDIO",
+        "XICARA DE CAFE",
+        "XICARA DE CHA"
+      ]
+    },
+    {
+      "taco_id": 488,
+      "pof_code": "7803301",
+      "pof_prep": "2",
+      "note": "POF preparation 2 is labeled 'cozido' (typo 'CROZIDO(A)' upstream); the unit weight is that of a medium boiled egg.",
+      "measures": [
+        "UNIDADE",
+        "BANDA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 490,
+      "pof_code": "7803301",
+      "pof_prep": "5",
+      "measures": [
+        "METADE",
+        "PORCAO",
+        "UNIDADE"
+      ]
+    },
+    {
+      "taco_id": 494,
+      "pof_code": "6906602",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CAFE",
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 507,
+      "pof_code": "6901602",
+      "pof_prep": "99",
+      "measures": [
+        "COLHER DE CAFE",
+        "COLHER DE CHA",
+        "COLHER DE SOBREMESA",
+        "COLHER DE SOPA",
+        "PORCAO"
+      ]
+    },
+    {
+      "taco_id": 533,
+      "pof_code": "6902901",
+      "pof_prep": "99",
+      "note": "POF 'CUSCUZ': piece weights only; its spoon measures are of corn flour, not cooked couscous.",
+      "measures": [
+        "BANDA",
+        "PEDACO"
+      ]
+    },
+    {
+      "taco_id": 551,
+      "pof_code": "6501516",
+      "pof_prep": "99",
+      "note": "POF 'TAPIOCA DE GOMA' (source: tapioca com coco): unit weight of one tapioca crepe; the filling differs from TACO's butter.",
+      "measures": [
+        "BANDA",
+        "UNIDADE"
       ]
     },
     {
@@ -68,54 +806,14 @@
       ]
     },
     {
-      "taco_id": 488,
-      "pof_code": "7803301",
-      "pof_prep": "2",
-      "note": "POF preparation 2 is labeled 'cozido' (typo 'CROZIDO(A)' upstream); the unit weight is that of a medium boiled egg.",
-      "measures": ["UNIDADE", "BANDA", "PORCAO"]
-    },
-    {
-      "taco_id": 53,
-      "pof_code": "8000105",
-      "pof_prep": "99",
-      "note": "POF 'PAO DE SAL' (source: pão francês).",
-      "measures": ["UNIDADE", "METADE", "PORCAO"]
-    },
-    {
-      "taco_id": 410,
-      "pof_code": "7800401",
-      "pof_prep": "3",
-      "note": "POF generic chicken breast (grilled preparation); weights are of a medium fillet/breast, not specific to skinless.",
-      "measures": ["FILE", "PEITO", "PORCAO"]
-    },
-    {
-      "taco_id": 182,
-      "pof_code": "6801101",
-      "pof_prep": "1",
-      "note": "POF generic banana entry; unit weights are those of banana prata.",
-      "measures": ["UNIDADE", "UNIDADE PEQUENA", "METADE", "FATIA", "PORCAO"]
-    },
-    {
-      "taco_id": 458,
-      "pof_code": "7900101",
+      "taco_id": 577,
+      "pof_code": "6302901",
       "pof_prep": "99",
       "measures": [
-        "COPO AMERICANO",
-        "COPO MEDIO",
-        "COPO GRANDE",
-        "COPO DE REQUEIJAO",
-        "XICARA DE CHA",
-        "XICARA DE CAFE",
-        "COPO DE CAFEZINHO",
-        "CANECA"
+        "COLHER DE SOPA",
+        "CONCHA",
+        "PORCAO"
       ]
-    },
-    {
-      "taco_id": 129,
-      "pof_code": "6400601",
-      "pof_prep": "2",
-      "note": "POF 'MANDIOCA' (source: aipim cozido).",
-      "measures": ["COLHER DE SOPA", "COLHER DE ARROZ/SERVIR", "PEDACO", "PORCAO"]
     }
   ]
 }

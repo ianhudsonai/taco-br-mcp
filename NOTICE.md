@@ -7,7 +7,7 @@ The publication states: "É permitida a reprodução total ou parcial do materia
 
 ## Household measures
 
-POF 2008-2009, IBGE — Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil. TACO and POF share no key; the mapping in `data/curation/household-map.json` is hand-curated for this project. IBGE's terms of use for redistribution have not been verified yet.
+POF 2008-2009, IBGE — Tabela de Medidas Referidas para os Alimentos Consumidos no Brasil. TACO and POF share no key; the mapping in `data/curation/household-map.json` (69 foods) is hand-curated for this project, keeping only measures whose POF source description matches the food. IBGE's terms of use for redistribution have not been verified yet.
 
 ## Processed CSVs
 

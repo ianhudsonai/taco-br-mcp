@@ -24,6 +24,7 @@ describe('tool contract', () => {
     expect(tools.map((t) => t.name).sort()).toEqual([
       'calc_meal',
       'compare_foods',
+      'convert_household_measure',
       'get_nutrients',
       'ping',
       'search_food'

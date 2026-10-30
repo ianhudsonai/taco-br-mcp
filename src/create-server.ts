@@ -1,6 +1,7 @@
 import { McpServer } from '@modelcontextprotocol/server';
 import { SERVER_NAME, SERVER_VERSION } from './constants.js';
 import { registerCalcMeal } from './tools/calc-meal.js';
+import { registerConvertHouseholdMeasure } from './tools/convert-household-measure.js';
 import { registerCompareFoods } from './tools/compare-foods.js';
 import { registerGetNutrients } from './tools/get-nutrients.js';
 import { registerPing } from './tools/ping.js';
@@ -13,5 +14,6 @@ export function createServer(): McpServer {
   registerGetNutrients(server);
   registerCalcMeal(server);
   registerCompareFoods(server);
+  registerConvertHouseholdMeasure(server);
   return server;
 }

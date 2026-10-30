@@ -18,7 +18,7 @@ This file only routes. Facts live in the files linked below.
 - `src/create-server.ts` — builds the McpServer and registers every tool
 - `src/tools/<tool>.ts` — one file per tool, exports `registerX(server)`
 - `src/constants.ts` — server name/version and the citation string
-- `scripts/build-data.ts` — CSV -> JSON pipeline; `scripts/nutrients.ts` and `scripts/measures.ts` hold the column/label tables
+- `scripts/build-data.ts` — CSV -> JSON pipeline; `scripts/nutrients.ts` and `scripts/measures.ts` hold the column and measure-label tables; `src/household.ts` matches user wording to measures
 - `data/foods.json`, `data/household.json` — generated, committed, shipped in the package; never edit by hand
 - `data/raw/brolesi/` — pinned upstream CSVs (brolesi/taco) + `UPSTREAM.json` (commit SHA and sha256); never edit by hand
 - `data/curation/household-map.json` — the only hand-edited data file (TACO -> POF mapping)
@@ -40,7 +40,9 @@ This file only routes. Facts live in the files linked below.
    the response must say so.
 7. Household measures (TACO <-> POF) have no shared key. Use
    `data/curation/household-map.json` only; do not fuzzy-match. A food without an
-   entry has no household measures: say so, do not guess.
+   entry has no household measures: say so, do not guess. When adding an entry,
+   check the POF `descricao_fonte` of every measure (it often belongs to another
+   food, e.g. flour instead of cooked couscous) and keep only the matching ones.
 8. Add a new tool = new file in `src/tools/` + one line in `create-server.ts` +
    a test. Keep tool descriptions short; they are read by models.
 9. Changing `data/raw/` or the pinned SHA means rerunning `npm run build:data`,
