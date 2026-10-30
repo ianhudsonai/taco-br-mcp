@@ -17,7 +17,9 @@ const ALIASES: Record<string, string[]> = {
   file: ['filé', 'filé médio'],
   bife: ['bife', 'bife médio'],
   xicara_de_cha: ['xícara de chá', 'xícara'],
-  xicara_de_cafe: ['xícara de café', 'xicrinha']
+  xicara_de_cafe: ['xícara de café', 'xicrinha'],
+  lata_350ml: ['lata', 'lata de 350 ml', 'lata de 350ml'],
+  garrafa_600ml: ['garrafa de 600 ml', 'garrafa de 600ml']
 };
 
 const IGNORED = new Set([

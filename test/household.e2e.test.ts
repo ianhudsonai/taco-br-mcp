@@ -89,6 +89,13 @@ describe('convert_household_measure', () => {
     expect(out.candidates!.every((c) => c.has_household_measures)).toBe(true);
   });
 
+  it('asks to confirm a food_query that only matched after a typo correction', async () => {
+    const out = await convert({ food_query: 'pao de quejo assado', measure: 'unidade' });
+    expect(out.status).toBe('ambiguous_food');
+    expect(out.grams).toBeUndefined();
+    expect(out.candidates!.map((c) => c.id)).toEqual([140]);
+  });
+
   it('reports a food with no curated measures and asks for grams', async () => {
     const out = await convert({ food_id: 40, measure: 'colher de sopa' });
     expect(out).toMatchObject({ status: 'no_household_data', food: { id: 40 } });

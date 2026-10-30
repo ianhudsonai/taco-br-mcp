@@ -1,5 +1,5 @@
 /**
- * Builds data/foods.json and data/household.json from the pinned upstream CSVs
+ * Builds data/foods.json, data/household.json and data/profiles.json from the pinned upstream CSVs
  * (brolesi/taco, see data/raw/brolesi/UPSTREAM.json).
  *
  *   npm run build:data            # reads the committed copies in data/raw/brolesi
@@ -9,23 +9,17 @@
  *   - upstream 1e-05 (TACO "Tr")     -> { "trace": true }
  *   - upstream empty (TACO NA, * or blank) -> null
  */
-import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'csv-parse/sync';
 import { NUTRIENTS } from './nutrients.js';
 import { MEASURE_LABELS } from './measures.js';
+import { buildProfiles } from './build-profiles.js';
+import { loadUpstream, root, roundValue, SOURCE, upstream } from './upstream.js';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const rawDir = join(root, 'data/raw/brolesi');
-const upstream = JSON.parse(readFileSync(join(rawDir, 'UPSTREAM.json'), 'utf8')) as {
-  repo: string;
-  sha: string;
-  files: Record<string, { path: string; sha256: string }>;
-};
+export { roundValue, SOURCE };
 
-export const SOURCE = 'TACO 4ª ed. (NEPA/UNICAMP, 2011)';
 const TRACE_RAW = 1e-5;
 
 export type NutrientValue = number | { trace: true } | null;
@@ -39,40 +33,6 @@ export interface FoodRecord {
   qualifiers: string | null;
   nutrients: Record<string, NutrientValue>;
   notes?: string[];
-}
-
-const sha256 = (buf: Buffer) => createHash('sha256').update(buf).digest('hex');
-
-async function loadUpstream(name: string, fetchRemote: boolean): Promise<Buffer> {
-  const meta = upstream.files[name];
-  if (!meta) throw new Error(`unknown upstream file ${name}`);
-  const local = join(rawDir, name);
-  let buf: Buffer;
-  if (fetchRemote || !existsSync(local)) {
-    const url = `https://raw.githubusercontent.com/brolesi/taco/${upstream.sha}/${meta.path}`;
-    console.error(`[build-data] fetching ${url}`);
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`fetch ${url} -> HTTP ${res.status}`);
-    buf = Buffer.from(await res.arrayBuffer());
-    mkdirSync(rawDir, { recursive: true });
-    writeFileSync(local, buf);
-  } else {
-    buf = readFileSync(local);
-  }
-  const got = sha256(buf);
-  if (got !== meta.sha256) {
-    throw new Error(`${name}: sha256 ${got} does not match pinned ${meta.sha256}`);
-  }
-  return buf;
-}
-
-/** Rounds to `decimals`; if a real (non-trace) value would collapse to 0, keeps more digits. */
-export function roundValue(raw: number, decimals: number): number {
-  for (let d = decimals; d <= decimals + 3; d++) {
-    const r = Number(raw.toFixed(d));
-    if (r !== 0 || raw === 0) return r;
-  }
-  return Number(raw.toPrecision(2));
 }
 
 function encode(
@@ -247,6 +207,8 @@ async function main() {
     `{\n  "meta": ${JSON.stringify(householdMeta)},\n  "foods": [\n${household.map((h) => '    ' + JSON.stringify(h)).join(',\n')}\n  ]\n}\n`
   );
   console.error(`[build-data] wrote data/household.json (${household.length} foods)`);
+
+  await buildProfiles(fetchRemote, foods);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

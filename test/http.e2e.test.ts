@@ -40,6 +40,8 @@ describe('Streamable HTTP (node --http)', () => {
         'calc_meal',
         'compare_foods',
         'convert_household_measure',
+        'get_amino_acids',
+        'get_fatty_acids',
         'get_nutrients',
         'ping',
         'search_food'

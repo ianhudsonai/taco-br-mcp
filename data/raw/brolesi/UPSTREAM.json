@@ -9,6 +9,14 @@
     "pof_medidas_caseiras.csv": {
       "path": "data/processed/pof/pof_medidas_caseiras.csv",
       "sha256": "baf300288eb153d94592ff3818e87641feeb996da23b3b8ed99fd5e5e2e65ff8"
+    },
+    "taco_acidos_graxos.csv": {
+      "path": "data/processed/taco/taco_acidos_graxos.csv",
+      "sha256": "3a389408e2d3dc234035d862f2d3c8039b5d76304b0ad061143861c5ee5913bd"
+    },
+    "taco_aminoacidos.csv": {
+      "path": "data/processed/taco/taco_aminoacidos.csv",
+      "sha256": "d396eaed98c9374e5452c3a240e8a3ddc2f03b87afbab29d7102e4c7a9e9be94"
     }
   }
 }

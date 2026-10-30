@@ -25,6 +25,8 @@ describe('tool contract', () => {
       'calc_meal',
       'compare_foods',
       'convert_household_measure',
+      'get_amino_acids',
+      'get_fatty_acids',
       'get_nutrients',
       'ping',
       'search_food'
@@ -77,6 +79,13 @@ describe('search_food', () => {
     const r = await call('search_food', { query: 'macaxeira' });
     const out = r.structuredContent as { results: { id: number; matched_via_synonym?: string }[] };
     expect(out.results[0]).toMatchObject({ id: 129, matched_via_synonym: 'macaxeira' });
+  });
+
+  it('flags results found after correcting a typo', async () => {
+    const r = await call('search_food', { query: 'feijao pretto cozido' });
+    const out = r.structuredContent as { results: { id: number; matched_via_typo?: string }[] };
+    expect(out.results[0]).toMatchObject({ id: 567, matched_via_typo: 'feijao preto cozido' });
+    expect(text(r)).toContain('corrigido para');
   });
 
   it('says plainly when nothing matches instead of guessing', async () => {
