@@ -1,0 +1,157 @@
+{
+  "question": 13,
+  "arm": "mcp",
+  "rep": 2,
+  "model": "claude-haiku-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 13011,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.007492610000000001,
+    "usage": {
+      "input_tokens": 11,
+      "cache_creation_input_tokens": 19191,
+      "cache_read_input_tokens": 266941,
+      "output_tokens": 1674,
+      "output_tokens_details": {
+        "thinking_tokens": 452
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 19191,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 416,
+          "cache_read_input_tokens": 49374,
+          "cache_creation_input_tokens": 527,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 527
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1360,
+        "outputTokens": 1698,
+        "cacheReadInputTokens": 266941,
+        "cacheCreationInputTokens": 19191,
+        "webSearchRequests": 0,
+        "costUSD": 0.007492610000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 452,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 19191,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 9,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "A refeição tem **363 kcal**, segundo a TACO 4ª edição:\n\n| Alimento (id TACO) | Quantidade | kcal |\n|---|---|---|\n| Arroz, tipo 1, cozido (id 3) | 4 colheres de sopa ≈ 100 g | 128 |\n| Feijão, carioca, cozido (id 561) | 100 g | 76 |\n| Frango, peito, sem pele, grelhado (id 410) | 100 g | 159 |\n| **Total** | 300 g | **363** |\n\nAs 4 colheres de sopa foram convertidas para 100 g com o peso médio de uma colher de sopa cheia de arroz cozido (25 g), da Tabela de Medidas Referidas da POF/IBGE. É uma média, não a pesagem do seu prato. Se a colher estiver mais cheia ou mais vazia, o valor muda proporcionalmente.\n\nRESPOSTA_FINAL: 363 kcal",
+    "ttft_ms": 2204,
+    "type": "result",
+    "duration_ms": 15401,
+    "uuid": "7f47b48e-d4dc-46d0-8bf9-66dcc1bc765b",
+    "ttft_stream_ms": 1864,
+    "time_to_request_ms": 801,
+    "time_to_request_phases_ms": {
+      "other": 24,
+      "system_prompt": 685,
+      "resume_other": 1,
+      "process_user_input": 2,
+      "input_attachments": 27,
+      "input_hooks": 3,
+      "tool_pool_refresh": 3,
+      "init_message": 7,
+      "engine_pickup": 1,
+      "message_prep": 2,
+      "model_config_wait": 1,
+      "autocompact": 3,
+      "query_setup": 0,
+      "model_gates": 1,
+      "tool_schema_build": 24,
+      "message_normalization": 2,
+      "client_creation": 7,
+      "request_build": 8
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 97,
+    "time_to_request_cpu_ms": 386,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 227,
+    "process_anon_mib_turn_start": 153,
+    "process_rss_mib_result": 216,
+    "process_anon_mib_result": 132,
+    "process_peak_rss_mib": 227,
+    "process_cpu_ms_turn": 1474,
+    "process_wall_ms_turn": 15400,
+    "process_cpu_ms_streaming": 554,
+    "process_wall_ms_streaming": 6035,
+    "main_stream_count": 6,
+    "main_stream_event_count": 202,
+    "main_stream_chunk_count": 121,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 19,
+      "cpu_ms": 30,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1864,
+    "time_to_request_from_spawn_ms": 204278,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793347904418.2651,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

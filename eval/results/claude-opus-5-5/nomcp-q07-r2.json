@@ -1,0 +1,173 @@
+{
+  "question": 7,
+  "arm": "nomcp",
+  "rep": 2,
+  "model": "claude-opus-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 3403,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.004672600000000001,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 4706,
+      "output_tokens": 179,
+      "output_tokens_details": {
+        "thinking_tokens": 43
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 179,
+          "cache_read_input_tokens": 4706,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1319,
+        "outputTokens": 23,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.00014340000000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 179,
+        "cacheReadInputTokens": 4706,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.004529200000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 43,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Na TACO 4ª ed. (NEPA/UNICAMP, 2011), o **feijão carioca cozido** tem **76 kcal por 100 g**.\n\nPara 150 g: 76 × 1,5 = **114 kcal**\n\nFonte: TACO 4ª ed. (NEPA/UNICAMP, 2011)\n\nRESPOSTA_FINAL: 114 kcal",
+    "ttft_ms": 1932,
+    "type": "result",
+    "duration_ms": 6190,
+    "uuid": "cedb5228-eeaf-4877-83db-709f9d0e08b1",
+    "ttft_stream_ms": 1676,
+    "time_to_request_ms": 356,
+    "time_to_request_phases_ms": {
+      "other": 31,
+      "system_prompt": 269,
+      "resume_other": 0,
+      "process_user_input": 5,
+      "input_attachments": 8,
+      "input_hooks": 4,
+      "tool_pool_refresh": 3,
+      "init_message": 9,
+      "engine_pickup": 2,
+      "message_prep": 3,
+      "model_config_wait": 0,
+      "autocompact": 3,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 2,
+      "message_normalization": 2,
+      "client_creation": 4,
+      "request_build": 10
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 54,
+    "time_to_request_cpu_ms": 181,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 212,
+    "process_anon_mib_turn_start": 139,
+    "process_rss_mib_result": 196,
+    "process_anon_mib_result": 117,
+    "process_peak_rss_mib": 214,
+    "process_cpu_ms_turn": 558,
+    "process_wall_ms_turn": 6189,
+    "process_cpu_ms_streaming": 48,
+    "process_wall_ms_streaming": 1228,
+    "main_stream_count": 1,
+    "main_stream_event_count": 29,
+    "main_stream_chunk_count": 12,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 5,
+      "cpu_ms": 8,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1676,
+    "time_to_request_from_spawn_ms": 433527,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793348134026.7986,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

@@ -1,0 +1,157 @@
+{
+  "question": 10,
+  "arm": "mcp",
+  "rep": 2,
+  "model": "claude-haiku-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 9128,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.0032318,
+    "usage": {
+      "input_tokens": 7,
+      "cache_creation_input_tokens": 3489,
+      "cache_read_input_tokens": 179000,
+      "output_tokens": 817,
+      "output_tokens_details": {
+        "thinking_tokens": 160
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3489,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 196,
+          "cache_read_input_tokens": 46443,
+          "cache_creation_input_tokens": 402,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 402
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1330,
+        "outputTokens": 1222,
+        "cacheReadInputTokens": 179000,
+        "cacheCreationInputTokens": 3489,
+        "webSearchRequests": 0,
+        "costUSD": 0.0032318,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 545,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3489,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "O arroz integral cozido tem mais fibra por 100 g: **2,7 g** contra **1,6 g** do arroz branco (tipo 1) cozido. Os dados são da TACO 4ª edição (NEPA/UNICAMP, 2011), por 100 g de parte comestível.\n\nOs dois valores são de alimentos cozidos, então a comparação por 100 g é direta.\n\nRESPOSTA_FINAL: arroz integral cozido tem 2,7 g de fibra por 100 g (arroz branco tipo 1 cozido tem 1,6 g)",
+    "ttft_ms": 1871,
+    "type": "result",
+    "duration_ms": 9506,
+    "uuid": "eb7dd34f-54e0-4067-a748-4acd94988523",
+    "ttft_stream_ms": 1322,
+    "time_to_request_ms": 339,
+    "time_to_request_phases_ms": {
+      "other": 18,
+      "system_prompt": 247,
+      "resume_other": 0,
+      "process_user_input": 2,
+      "input_attachments": 20,
+      "input_hooks": 3,
+      "tool_pool_refresh": 3,
+      "init_message": 6,
+      "engine_pickup": 1,
+      "message_prep": 3,
+      "model_config_wait": 0,
+      "autocompact": 2,
+      "query_setup": 0,
+      "model_gates": 1,
+      "tool_schema_build": 20,
+      "message_normalization": 2,
+      "client_creation": 3,
+      "request_build": 8
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 79,
+    "time_to_request_cpu_ms": 176,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 224,
+    "process_anon_mib_turn_start": 148,
+    "process_rss_mib_result": 216,
+    "process_anon_mib_result": 132,
+    "process_peak_rss_mib": 224,
+    "process_cpu_ms_turn": 836,
+    "process_wall_ms_turn": 9505,
+    "process_cpu_ms_streaming": 213,
+    "process_wall_ms_streaming": 2759,
+    "main_stream_count": 4,
+    "main_stream_event_count": 95,
+    "main_stream_chunk_count": 44,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 14,
+      "cpu_ms": 24,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1323,
+    "time_to_request_from_spawn_ms": 188069,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793347888623.039,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

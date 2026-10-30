@@ -1,0 +1,157 @@
+{
+  "question": 2,
+  "arm": "mcp",
+  "rep": 1,
+  "model": "claude-haiku-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 7947,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.005069210000000001,
+    "usage": {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 15126,
+      "cache_read_input_tokens": 162551,
+      "output_tokens": 465,
+      "output_tokens_details": {
+        "thinking_tokens": 64
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15126,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 124,
+          "cache_read_input_tokens": 44756,
+          "cache_creation_input_tokens": 358,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 358
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1300,
+        "outputTokens": 577,
+        "cacheReadInputTokens": 162551,
+        "cacheCreationInputTokens": 15126,
+        "webSearchRequests": 0,
+        "costUSD": 0.005069210000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 158,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15126,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Segundo a TACO 4ª edição, 100 g de pão francês (alimento nº 53, \"Pão, trigo, francês\") têm **648 mg de sódio**. A tabela traz o valor por 100 g de parte comestível, sem dado de ausência ou traço para esse nutriente.\n\nRESPOSTA_FINAL: 648 mg de sódio",
+    "ttft_ms": 1921,
+    "type": "result",
+    "duration_ms": 9299,
+    "uuid": "160564d2-c7a6-4d1e-8bc0-6acad5fc051e",
+    "ttft_stream_ms": 1524,
+    "time_to_request_ms": 471,
+    "time_to_request_phases_ms": {
+      "other": 42,
+      "system_prompt": 278,
+      "resume_other": 0,
+      "process_user_input": 4,
+      "input_attachments": 28,
+      "input_hooks": 4,
+      "tool_pool_refresh": 5,
+      "init_message": 10,
+      "engine_pickup": 3,
+      "message_prep": 3,
+      "model_config_wait": 1,
+      "autocompact": 4,
+      "query_setup": 1,
+      "model_gates": 1,
+      "tool_schema_build": 51,
+      "message_normalization": 6,
+      "client_creation": 7,
+      "request_build": 23
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 169,
+    "time_to_request_cpu_ms": 251,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 186,
+    "process_anon_mib_turn_start": 111,
+    "process_rss_mib_result": 208,
+    "process_anon_mib_result": 125,
+    "process_peak_rss_mib": 208,
+    "process_cpu_ms_turn": 934,
+    "process_wall_ms_turn": 9298,
+    "process_cpu_ms_streaming": 256,
+    "process_wall_ms_streaming": 1685,
+    "main_stream_count": 4,
+    "main_stream_event_count": 65,
+    "main_stream_chunk_count": 32,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 20,
+      "cpu_ms": 32,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1525,
+    "time_to_request_from_spawn_ms": 72673,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793347771828.1401,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

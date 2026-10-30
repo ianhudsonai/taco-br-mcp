@@ -1,0 +1,173 @@
+{
+  "question": 6,
+  "arm": "mcp",
+  "rep": 3,
+  "model": "claude-opus-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 9197,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.15513660000000004,
+    "usage": {
+      "input_tokens": 8,
+      "cache_creation_input_tokens": 14282,
+      "cache_read_input_tokens": 159943,
+      "output_tokens": 436,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14282,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 158,
+          "cache_read_input_tokens": 43849,
+          "cache_creation_input_tokens": 338,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 338
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1295,
+        "outputTokens": 21,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.00014000000000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5-5": {
+        "inputTokens": 8,
+        "outputTokens": 436,
+        "cacheReadInputTokens": 159943,
+        "cacheCreationInputTokens": 14282,
+        "webSearchRequests": 0,
+        "costUSD": 0.1549966,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 14282,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Pela TACO 4ª edição (NEPA/UNICAMP, 2011), 100 g de lentilha cozida (item 577, \"Lentilha, cozida\") têm **1,5 mg de ferro**.\n\nO ferro de vegetais é absorvido com mais dificuldade que o de carnes. Ele é melhor aproveitado quando a refeição inclui uma fonte de vitamina C.\n\nRESPOSTA_FINAL: 1,5 mg",
+    "ttft_ms": 2512,
+    "type": "result",
+    "duration_ms": 11277,
+    "uuid": "feea8e59-8fc7-4134-bf63-b5c40ad396ba",
+    "ttft_stream_ms": 1700,
+    "time_to_request_ms": 378,
+    "time_to_request_phases_ms": {
+      "other": 20,
+      "system_prompt": 274,
+      "resume_other": 0,
+      "process_user_input": 3,
+      "input_attachments": 27,
+      "input_hooks": 3,
+      "tool_pool_refresh": 3,
+      "init_message": 6,
+      "engine_pickup": 1,
+      "message_prep": 2,
+      "model_config_wait": 1,
+      "autocompact": 2,
+      "query_setup": 1,
+      "model_gates": 0,
+      "tool_schema_build": 21,
+      "message_normalization": 2,
+      "client_creation": 3,
+      "request_build": 9
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 76,
+    "time_to_request_cpu_ms": 188,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 219,
+    "process_anon_mib_turn_start": 144,
+    "process_rss_mib_result": 211,
+    "process_anon_mib_result": 128,
+    "process_peak_rss_mib": 220,
+    "process_cpu_ms_turn": 949,
+    "process_wall_ms_turn": 11276,
+    "process_cpu_ms_streaming": 119,
+    "process_wall_ms_streaming": 1672,
+    "main_stream_count": 4,
+    "main_stream_event_count": 66,
+    "main_stream_chunk_count": 20,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 18,
+      "cpu_ms": 31,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 1700,
+    "time_to_request_from_spawn_ms": 522894,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793348223323.1165,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}

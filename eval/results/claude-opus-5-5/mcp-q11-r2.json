@@ -1,0 +1,173 @@
+{
+  "question": 11,
+  "arm": "mcp",
+  "rep": 2,
+  "model": "claude-opus-5-5",
+  "code": 0,
+  "result": {
+    "duration_api_ms": 20193,
+    "stop_reason": "end_turn",
+    "session_id": "b68c05fa-3db3-5a2f-b93b-b4dc97754998",
+    "total_cost_usd": 0.0939893,
+    "usage": {
+      "input_tokens": 11,
+      "cache_creation_input_tokens": 2817,
+      "cache_read_input_tokens": 266453,
+      "output_tokens": 899,
+      "output_tokens_details": {
+        "thinking_tokens": 28
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 2817,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 371,
+          "cache_read_input_tokens": 45967,
+          "cache_creation_input_tokens": 354,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 354
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1297,
+        "outputTokens": 18,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0001387,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 0,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      },
+      "claude-opus-5-5": {
+        "inputTokens": 11,
+        "outputTokens": 899,
+        "cacheReadInputTokens": 266453,
+        "cacheCreationInputTokens": 2817,
+        "webSearchRequests": 0,
+        "costUSD": 0.0938506,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 28,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 2817,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Dois pães franceses médios têm cerca de **300 kcal**.\n\n- **Alimento na TACO:** \"Pão, trigo, francês\" (nº 53), que tem **300 kcal por 100 g**.\n- **Peso de uma unidade média:** 50 g. Esse valor é a média referida pelas pessoas na POF 2008-2009 do IBGE (\"Pão francês – unidade\"). A TACO não traz medidas caseiras, por isso o peso vem da POF.\n- **2 unidades:** 2 × 50 g = 100 g, o que dá **300 kcal** (cerca de 150 kcal por pão).\n\nO pão que você come pode pesar mais ou menos que 50 g. Se tiver uma balança, multiplique o peso real por 3 kcal/g.\n\nFonte: TACO 4ª ed. (NEPA/UNICAMP, 2011); peso da unidade pela POF 2008-2009 (IBGE).\n\nRESPOSTA_FINAL: 300 kcal",
+    "ttft_ms": 6499,
+    "type": "result",
+    "duration_ms": 21487,
+    "uuid": "41f118a8-d815-471c-8a52-8ee792f6951d",
+    "ttft_stream_ms": 5888,
+    "time_to_request_ms": 398,
+    "time_to_request_phases_ms": {
+      "other": 28,
+      "system_prompt": 238,
+      "resume_other": 0,
+      "process_user_input": 4,
+      "input_attachments": 59,
+      "input_hooks": 4,
+      "tool_pool_refresh": 4,
+      "init_message": 9,
+      "engine_pickup": 2,
+      "message_prep": 2,
+      "model_config_wait": 2,
+      "autocompact": 2,
+      "query_setup": 2,
+      "model_gates": 0,
+      "tool_schema_build": 29,
+      "message_normalization": 2,
+      "client_creation": 3,
+      "request_build": 8
+    },
+    "turn_start_resume_kind": "none",
+    "process_turn_index": 0,
+    "time_to_request_loop_lag_ms": 146,
+    "time_to_request_cpu_ms": 320,
+    "time_to_request_major_faults": 0,
+    "process_rss_mib_turn_start": 211,
+    "process_anon_mib_turn_start": 136,
+    "process_rss_mib_result": 213,
+    "process_anon_mib_result": 128,
+    "process_peak_rss_mib": 221,
+    "process_cpu_ms_turn": 1355,
+    "process_wall_ms_turn": 21486,
+    "process_cpu_ms_streaming": 212,
+    "process_wall_ms_streaming": 5891,
+    "main_stream_count": 6,
+    "main_stream_event_count": 123,
+    "main_stream_chunk_count": 40,
+    "input_attachments_detail": {
+      "slowest_producer": "queued_commands",
+      "slowest_producer_ms": 19,
+      "cpu_ms": 137,
+      "major_faults": 0
+    },
+    "first_content_frame_ms": 5889,
+    "time_to_request_from_spawn_ms": 460492,
+    "warm_spare_claimed": false,
+    "flag_fetch_kick": "not_asked_warm",
+    "time_origin_ms": 1793348160679.8875,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "process_start_tuning": 0
+  },
+  "stderr": ""
+}
