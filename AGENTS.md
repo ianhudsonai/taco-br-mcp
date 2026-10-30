@@ -1,6 +1,6 @@
 # AGENTS.md — taco-br-mcp
 
-MCP server (TypeScript, stdio) that answers questions about the TACO table
+MCP server (TypeScript, stdio and Streamable HTTP) that answers questions about the TACO table
 (Tabela Brasileira de Composição de Alimentos, 4ª ed., NEPA/UNICAMP, 2011)
 with exact numbers and a citation, instead of letting the model guess.
 This file only routes. Facts live in the files linked below.
@@ -14,7 +14,9 @@ This file only routes. Facts live in the files linked below.
 
 ## Layout
 
-- `src/server.ts` — stdio entry point (serveStdio only)
+- `src/server.ts` — entry point: stdio (`serveStdio`) by default, `--http` for Streamable HTTP on Node
+- `src/http-app.ts` — web-standard `Request -> Response` app (`createMcpHandler`, `/mcp`, `/health`, CORS, 429); shared by Node and the Worker
+- `src/node-http.ts` (node:http adapter), `src/worker.ts` (Cloudflare Workers entry), `src/rate-limit.ts`; `wrangler.toml` — Worker config; `docs/remote.md` — deploy and ChatGPT setup
 - `src/create-server.ts` — builds the McpServer and registers every tool
 - `src/tools/<tool>.ts` — one file per tool, exports `registerX(server)`
 - `src/constants.ts` — server name/version and the citation string
@@ -29,7 +31,7 @@ This file only routes. Facts live in the files linked below.
 
 1. MCP SDK v2 only: `@modelcontextprotocol/server`, `registerTool`, `serveStdio`,
    `zod/v4`. Never the v1 package or API. `test/no-sdk-v1.test.ts` enforces this.
-2. stdout belongs to the protocol. Never `console.log`; log to stderr if needed.
+2. stdout belongs to the protocol (stdio mode). Never `console.log`; log to stderr if needed.
 3. TypeScript strict, ESM, Node >= 20. No `any` to silence the compiler.
 4. Every tool response cites "TACO 4ª ed. (NEPA/UNICAMP, 2011)".
 5. Data semantics: `Tr` -> `{ trace: true }`; empty/missing -> `null`; never `0`.
@@ -56,4 +58,4 @@ Do not publish by hand.
 
 ## Scope
 
-v1 is stdio only (Claude Code, Claude Desktop, Cursor). HTTP/ChatGPT is v1.1.
+stdio is the default (Claude Code, Claude Desktop, Cursor). HTTP (`--http`, Cloudflare Worker) exists for ChatGPT: open, stateless, read-only, no auth. The Worker is deployed by hand with `npm run deploy:worker`; it is not part of the npm release. No sessions or state in HTTP mode.

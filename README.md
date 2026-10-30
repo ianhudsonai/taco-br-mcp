@@ -4,7 +4,7 @@
 
 > **Em português:** servidor MCP com a Tabela Brasileira de Composição de Alimentos (TACO). Busca alimentos, devolve nutrientes, soma refeições e converte medidas caseiras em gramas. Toda resposta cita a fonte, e o que a tabela não traz vem como "sem dado", nunca como zero.
 
-stdio transport, for Claude Desktop, Claude Code, Cursor and other local MCP clients. Remote HTTP (ChatGPT) is not part of v1.
+stdio by default, for Claude Desktop, Claude Code, Cursor and other local MCP clients. It also serves Streamable HTTP (`--http`), which is how ChatGPT connects: see [Remote HTTP and ChatGPT](#remote-http-and-chatgpt).
 
 ## Install
 
@@ -27,6 +27,16 @@ claude mcp add taco-br -- npx -y taco-br-mcp
 ```
 
 Then ask, for example: _"Quantas kcal tem uma refeição de 4 colheres de sopa de arroz, 100 g de feijão carioca e 100 g de peito de frango grelhado?"_
+
+## Remote HTTP and ChatGPT
+
+ChatGPT cannot reach a server running on your PC, so the same tools are available over Streamable HTTP:
+
+```bash
+npx -y taco-br-mcp --http   # http://127.0.0.1:3000/mcp
+```
+
+The repository also ships a Cloudflare Workers deployment (free plan, open access, per-IP rate limit). Step-by-step deploy and the ChatGPT connector setup (Settings → Apps & Connectors, developer mode, authentication "No authentication") are in [docs/remote.md](docs/remote.md).
 
 ## Tools
 
